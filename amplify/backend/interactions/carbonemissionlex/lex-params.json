@@ -1,0 +1,129 @@
+{
+    "resourceName": "carbonemissionlex",
+    "botName": "calculatecarbonemissionbot",
+    "intents": [
+        {
+            "lambda": {
+                "region": "us-east-1",
+                "accountId": "328229711407",
+                "lambdaArn": "arn:aws:lambda:us-east-1:328229711407:function:carbonemissioncalculator-dev",
+                "lambdaName": "carbonemissioncalculator-dev"
+            },
+            "cancelMessage": "Okay, carbon emission will not be calculated",
+            "confirmationQuestion": "Are you ready to calculate carbon emission for the products?",
+            "slots": [
+                {
+                    "name": "category",
+                    "type": "category",
+                    "prompt": "Which category of products ,food or goods?",
+                    "required": true,
+                    "customType": true
+                },
+                {
+                    "name": "food",
+                    "type": "fooditems",
+                    "prompt": "what food items?",
+                    "required": false,
+                    "customType": true
+                },
+                {
+                    "name": "goods",
+                    "type": "goods",
+                    "prompt": "What type of goods?",
+                    "required": false,
+                    "customType": true
+                },
+                {
+                    "name": "Quantity",
+                    "type": "AMAZON.NUMBER",
+                    "prompt": "What quantity",
+                    "required": false,
+                    "customType": false
+                }
+            ],
+            "utterances": [
+                "Can u find total carbon emission",
+                "Here are my products to calculate carbon emission",
+                "Find carbon dioxide equivalent for my products",
+                "Find carbon emission",
+                "I want to calculate carbon emission for my produts",
+                "Find total carbon emission for my products",
+                "I want to find total carbon emission for my products",
+                "I want to calculate carbon dioxide emission for my products",
+                "Find total carbon dioxide emission for my products",
+                "Please calculate carbon emission for me",
+                "Please calculate emission score for my products",
+                "I need to know carbon emissions value for my products",
+                "I need to know carbon dioxide emissions value for my products ",
+                "can u find total carbon emission",
+                "Find emission"
+            ],
+            "intentName": "calculatecarbonemission",
+            "newSlotTypes": [
+                {
+                    "slotType": "category",
+                    "slotTypeDescription": "type of category food or goods",
+                    "slotValues": [
+                        "food",
+                        "fooditems",
+                        "goods"
+                    ]
+                },
+                {
+                    "slotType": "fooditems",
+                    "slotTypeDescription": "types of food items",
+                    "slotValues": [
+                        "coffee",
+                        "chocolate",
+                        "lamb",
+                        "beef",
+                        "fish",
+                        "redMeat",
+                        "whiteMeat",
+                        "cheese",
+                        "pork",
+                        "turkey",
+                        "chicken",
+                        "tuna",
+                        "eggs",
+                        "potatoes",
+                        "rice",
+                        "nuts",
+                        "beans",
+                        "tofu",
+                        "vegetables",
+                        "milk",
+                        "fruit",
+                        "lentils"
+                    ]
+                },
+                {
+                    "slotType": "goods",
+                    "slotTypeDescription": "type of goods",
+                    "slotValues": [
+                        "shirt",
+                        "tshirt",
+                        "jeans",
+                        "sweater",
+                        "coat",
+                        "dress",
+                        "shoes",
+                        "smartphone",
+                        "tablet",
+                        "computer",
+                        "laptop",
+                        "tv",
+                        "fossilFuelCar",
+                        "hybridCar",
+                        "electricCar",
+                        "electricity"
+                    ]
+                }
+            ]
+        }
+    ],
+    "outputVoice": "Joanna",
+    "sessionTimeout": "10",
+    "coppa": false,
+    "shortId": "92b79d28"
+}

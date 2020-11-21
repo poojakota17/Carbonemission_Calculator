@@ -1,5 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { Interactions } from 'aws-amplify';
+import { AmplifyChatbot } from "@aws-amplify/ui-react";
+import config from './aws-exports';
+import Amplify from 'aws-amplify';
+Amplify.configure(config);
 
 function App() {
   return (
@@ -17,9 +23,16 @@ function App() {
         >
           Learn React
         </a>
+        <AmplifyChatbot
+          botName="calculatecarbonemissionbot_dev"
+          botTitle="Calculate carbon emission bot"
+          welcomeMessage="Hello, how can I help you?"
+          textEnabled="true" />
       </header>
+
+      <AmplifySignOut />
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App);

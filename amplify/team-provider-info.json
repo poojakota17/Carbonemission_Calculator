@@ -10,6 +10,11 @@
       "StackName": "amplify-carbonemission-dev-52613",
       "StackId": "arn:aws:cloudformation:us-east-1:328229711407:stack/amplify-carbonemission-dev-52613/ea31ec30-2af0-11eb-bdd1-0a57eb901035",
       "AmplifyAppId": "dxy1bcb2x6tt1"
+    },
+    "categories": {
+      "auth": {
+        "carbonemission056d6878": {}
+      }
     }
   }
 }
