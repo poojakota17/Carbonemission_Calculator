@@ -23,21 +23,21 @@
                     "name": "food",
                     "type": "fooditems",
                     "prompt": "what food items?",
-                    "required": false,
+                    "required": true,
                     "customType": true
                 },
                 {
                     "name": "goods",
                     "type": "goods",
                     "prompt": "What type of goods?",
-                    "required": false,
+                    "required": true,
                     "customType": true
                 },
                 {
                     "name": "Quantity",
                     "type": "AMAZON.NUMBER",
                     "prompt": "What quantity",
-                    "required": false,
+                    "required": true,
                     "customType": false
                 }
             ],

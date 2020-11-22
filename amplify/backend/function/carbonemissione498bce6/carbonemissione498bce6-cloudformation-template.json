@@ -69,7 +69,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-carbonemission-dev-52613-deployment",
-          "S3Key": "amplify-builds/carbonemissione498bce6-2b6e5630414f794f5441-build.zip"
+          "S3Key": "amplify-builds/carbonemissione498bce6-4161424f356f39624a61-build.zip"
         }
       }
     },
