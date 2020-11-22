@@ -2,12 +2,14 @@ import React from 'react';
 import { AmplifySignOut } from '@aws-amplify/ui-react';
 import { Interactions } from 'aws-amplify';
 import { AmplifyChatbot } from "@aws-amplify/ui-react";
+import { ReactComponent as Logo} from '../../logo.svg';
 
 const MainPage = props => {
     return (
       <div className="App">
         <header className="App-header">
           <p>
+          <p>f<Logo /></p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <a

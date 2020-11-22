@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -6,9 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import config from './aws-exports';
 import Amplify from 'aws-amplify';
 Amplify.configure(config);
-
-
-
 
 ReactDOM.render(
   <React.StrictMode>
