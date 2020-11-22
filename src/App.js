@@ -1,38 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import { Interactions } from 'aws-amplify';
-import { AmplifyChatbot } from "@aws-amplify/ui-react";
-import config from './aws-exports';
-import Amplify from 'aws-amplify';
-Amplify.configure(config);
+import {
+  Link,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
+import UserApp from './UserApp'
+import { WelcomePage } from './pages/WelcomePage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <AmplifyChatbot
-          botName="calculatecarbonemissionbot_dev"
-          botTitle="Calculate carbon emission bot"
-          welcomeMessage="Hello, how can I help you?"
-          textEnabled="true" />
-      </header>
 
-      <AmplifySignOut />
-    </div>
-  );
+const App = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" exact render={() => <WelcomePage />}/>
+                <Route path="/user" render={() => <UserApp />}/>
+            </Switch>
+        </Router>
+    );
 }
 
-export default withAuthenticator(App);
+export default App;
