@@ -259,6 +259,10 @@ exports.handler = function (event, context) {
                 "Find emission",
 
             ],
+            "dialogCodeHook": {
+                "messageVersion": "1.0",
+                "uri": "arn:aws:lambda:us-east-1:328229711407:function:lexcodehooklambda-dev"
+            },
 
             "fulfillmentLambda": {
                 "region": "us-east-1",
@@ -329,7 +333,7 @@ exports.handler = function (event, context) {
 
                 {
                     "name": "Quantity",
-                    "slotConstraint": "Optional",
+                    "slotConstraint": "Required",
                     "priority": 3,
                     "slotType": "AMAZON.NUMBER",
 
@@ -542,7 +546,7 @@ function ensureLambdaFunctionAccess(intent) {
 
         const params = {
             FunctionName: lambdaName,
-            StatementId: `Lex-${intent.name}` + "92b79d28",
+            StatementId: `Lex-${intent.name}` + "1026afc9",
             Action: 'lambda:InvokeFunction',
             Principal: 'lex.amazonaws.com',
             SourceArn: `arn:aws:lex:${region}:${accountId}:intent:${intent.name}:*`,
