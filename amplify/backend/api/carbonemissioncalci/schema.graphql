@@ -1,5 +1,5 @@
-type user @model @auth(rules: [{ allow: owner }]) {
+type User @model{
   id: ID!
-  username: String
+  username: String!
   budget: String
 }
