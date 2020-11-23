@@ -27,7 +27,22 @@ exports.handler = (event, context, callback) => {
         }
         callback(null, response);
     }
-    // else if ()
+    else if (food === " ") {
+        let response = {
+            sessionAttributes: event.sessionAttributes,
+            dialogAction: {
+                type: "ElicitSlot",
+                message: {
+                    contentType: "PlainText",
+                    content: `Please enter a valid food item`
+                },
+                intentName: event.currentIntent.name,
+                slots: slots,
+                slotToElicit: "food"
+            }
+        }
+        callback(null, response);
+    }
 
 
     // if valid book name is obtained, send command to choose next course of action
