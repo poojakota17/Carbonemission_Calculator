@@ -2,6 +2,7 @@ import React from 'react';
 import { AmplifySignOut } from '@aws-amplify/ui-react';
 import { Interactions } from 'aws-amplify';
 import { AmplifyChatbot } from "@aws-amplify/ui-react";
+<<<<<<< HEAD
 import { ReactComponent as Logo} from '../../logo.svg';
 import  { useState, useEffect } from 'react';
 import { API, Auth } from 'aws-amplify';
@@ -77,6 +78,37 @@ const MainPage = props => {
         <AmplifySignOut />
       </div>
     );
+=======
+import { ReactComponent as Logo } from '../../logo.svg';
+
+const MainPage = props => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>
+          <p><Logo /></p>
+
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+          </a>
+        <AmplifyChatbot
+          botName="calculatecarbonemissionbot_dev"
+          botTitle="Calculate carbon emission bot"
+          welcomeMessage="Hello, how can I help you?"
+          textEnabled="true"
+        />
+      </header>
+
+      <AmplifySignOut />
+    </div>
+  );
+>>>>>>> 14ea3f3201e6d68c8daf1941452fc9ee3b3bf25a
 };
 
 export default MainPage;
