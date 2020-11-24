@@ -7,7 +7,7 @@ import  { useState, useEffect } from 'react';
 import { listUsers } from '../../graphql/queries'
 import { createUser as createUserMutation, deleteUser as deleteUserMutation } from '../../graphql/mutations';
 
-const initialFormState = { username: '', Budget: '' }
+const initialFormState = { username: '', budget: '' }
 
 const MainPage = props => {
   const [users, setUsers] = useState([]);
@@ -18,14 +18,17 @@ const MainPage = props => {
   }, []);
 
   async function fetchUsers() {
+    console.log("In fetchuser function")
     const apiData = await API.graphql({ query: listUsers });
+    console.log("In fetchuser , after api data ", apiData)
     setUsers(apiData.data.listUsers.items);
   }
   
   async function createUsers() {
     if (!formData.username || !formData.budget) return;
+    console.log("In create user")
     await API.graphql({ query: createUserMutation, variables: { input: formData } });
-
+    console.log(" in create user ")
     setUsers([ ...users, formData ]);
     console.log(" printing setusers", setUsers)
     setFormData(initialFormState);
@@ -34,10 +37,10 @@ const MainPage = props => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        
           <p><Logo /></p>
 
-        </p>
+       
         <input
         onChange={e => setFormData({ ...formData, 'username': e.target.value})}
         placeholder="Create an Username"
@@ -45,7 +48,7 @@ const MainPage = props => {
       />
       <input
         onChange={e => setFormData({ ...formData, 'budget': e.target.value})}
-        placeholder=" Set Up a monthly Budget"
+        placeholder=" Set Up a monthly budget"
         value={formData.budget}
       />
       <button onClick={createUsers}> Okay </button>

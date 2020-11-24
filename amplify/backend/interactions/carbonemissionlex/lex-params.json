@@ -39,6 +39,13 @@
                     "prompt": "What quantity",
                     "required": true,
                     "customType": false
+                },
+                {
+                    "name": "moreitem",
+                    "type": "boolean",
+                    "prompt": "Do you want to add more items?",
+                    "required": true,
+                    "customType": true
                 }
             ],
             "utterances": [
@@ -118,6 +125,16 @@
                         "electricCar",
                         "electricity"
                     ]
+                },
+                {
+                    "slotType": "boolean",
+                    "slotTypeDescription": "want to add more item",
+                    "slotValues": [
+                        "yes",
+                        "y",
+                        "no",
+                        "n"
+                    ]
                 }
             ]
         }
@@ -125,5 +142,5 @@
     "outputVoice": "Joanna",
     "sessionTimeout": "10",
     "coppa": false,
-    "shortId": "1026afc9"
+    "shortId": "1b852124"
 }

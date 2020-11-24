@@ -1,5 +1,5 @@
-type User @model  {
+type User @model{
   id: ID!
-  username: String
+  username: String!
   budget: String
 }

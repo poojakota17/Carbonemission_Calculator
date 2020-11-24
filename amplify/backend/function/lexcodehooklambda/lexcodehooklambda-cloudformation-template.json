@@ -69,7 +69,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-carbonemission-dev-52613-deployment",
-          "S3Key": "amplify-builds/lexcodehooklambda-65565252505336494343-build.zip"
+          "S3Key": "amplify-builds/lexcodehooklambda-33314e79772b65765671-build.zip"
         }
       }
     },
