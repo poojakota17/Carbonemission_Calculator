@@ -35,6 +35,7 @@ exports.handler = (event, context, callback) => {
 
     console.log("category")
     console.log(category)
+
     if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) === -1) {
         let response = {
             sessionAttributes: event.sessionAttributes,
@@ -125,6 +126,7 @@ exports.handler = (event, context, callback) => {
         }
         callback(null, response);
     }
+    console.log(event)
     if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) >= 0 && quantity && validmoreitem.indexOf(moreitem.toLowerCase()) >= 0) {
         let response = {
             sessionAttributes: sessionAttributes,
