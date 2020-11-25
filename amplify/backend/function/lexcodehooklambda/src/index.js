@@ -12,26 +12,27 @@ exports.handler = (event, context, callback) => {
     let SA = {};
 
     // predefined list of available books
-    const validcategory = ['food', 'fooditems', 'products'];
+
     const validfooditmes = ['beef', 'lamb', 'eggs', 'fruits'];
     const validmoreitem = ['yes', 'y', 'no', 'n'];
 
     // negative check: if valid slot value is not obtained, inform lex that user is expected 
     // respond with a slot value 
-    console.log("category")
-    console.log(category)
-    if (category && !(category === "") && validcategory.indexOf(category.toLowerCase()) === -1) {
+    console.log("food")
+    console.log(food)
+    if (food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) === -1) {
         let response = {
             sessionAttributes: sessionAttributes,
             dialogAction: {
                 type: "ElicitSlot",
                 message: {
                     contentType: "PlainText",
-                    content: `sorry, we do not have this category: ${category}, Please choose from either food or products.`
+                    content: `Sorry, we do not currently have record for product: ${items}, Please enter another item`
                 },
+
                 intentName: event.currentIntent.name,
                 slots: slots,
-                slotToElicit: "category"
+                slotToElicit: "items"
             }
         }
         callback(null, response);
@@ -43,10 +44,23 @@ exports.handler = (event, context, callback) => {
         }
         let key = slots.items;
         let value = slots.quantity;
-        SA[key] = value;
-        console.log("sessionattributes SA")
-        console.log(SA);
-        Object.assign(sessionAttributes, SA)
+        if (key in sessionAttributes) {
+            var a = parseFloat(sessionAttributes[key]);
+            console.log("a", a)
+            var b = parseFloat(value);
+            console.log("b", b)
+            console.log("a+b", a + b)
+            sessionAttributes[key] = a + b;
+            console.log()
+        } else {
+            SA[key] = value;
+            console.log("sessionattributes SA")
+            console.log(SA);
+            Object.assign(sessionAttributes, SA)
+
+        }
+
+
 
         let response = {
             sessionAttributes: sessionAttributes,

@@ -2,7 +2,7 @@
     background-image: url('https://images4.alphacoders.com/955/thumb-1920-955566.jpg');
 }
 
-.class1 {
+.class2 {
     background-image: url('https://image.shutterstock.com/image-photo/europe-night-viewed-space-city-260nw-1072726052.jpg');
 }
 
@@ -11,16 +11,33 @@
     background-image: url('https://img.etimg.com/thumb/msid-68991356,width-1200,height-900,imgsize-670593,overlay-economictimes/photo.jpg');
 }
 
+.caption {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+}
 
+/*.class1:hover,
+.class2:hover {
+    filter: blur(8px);
+}*/
+
+.myCard:hover{
+    filter: drop-shadow(15px 15px 4px rgb(31, 195, 9))
+}
+.myCard {
+    transition: filter 1.5s;
+}
 
 .background0,
-
-.class2 {
+.class2,
+.class1 {
     height: 500px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /*transition: filter 1s;*/
 }
 
 .class1{

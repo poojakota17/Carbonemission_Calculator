@@ -1,8 +1,19 @@
-type User @model{
+type Balance @model @auth(rules: [{ allow: owner }])
+  @key(name: "balanceByMonth", fields: ["period"], queryField: "balanceByMonth") {
   id: ID!
-  username: String!
-  budget: String
-  category: String
-  quantity: String
-  cevalue: String
+  period: AWSDate!
+  cbudget: Int
+  cspendings: Int
 }
+
+type Spendings @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  title: String!
+  score: Int
+  metadata: MetaData
+}
+
+type MetaData {
+ category: Category
+}
+enum Category { food products }
