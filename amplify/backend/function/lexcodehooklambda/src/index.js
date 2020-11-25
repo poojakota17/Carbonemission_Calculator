@@ -56,6 +56,7 @@ exports.handler = (event, context, callback) => {
             SA[key] = value;
             console.log("sessionattributes SA")
             console.log(SA);
+            console.log();
             Object.assign(sessionAttributes, SA)
 
         }

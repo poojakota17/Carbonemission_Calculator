@@ -40,11 +40,11 @@ const StaticPage = props => {
                                 <Card.Title>Renweable Energy</Card.Title>
                                 <Card.Img variant="top" src="/images/renewable.jpg" rounded />
                                 <Card.Text>
-                                    1
+                                    Wind Energy, Hydro Energy, these are renewable energies
                                 </Card.Text>
                             </Card.Body>
                             <ListGroup className="list-group-flush">
-                                <ListGroupItem>You save CO2e 13499 Kg/ Year</ListGroupItem>
+                                <ListGroupItem>You save CO2e </ListGroupItem>
 
                             </ListGroup>
                             <Card.Body>
@@ -59,7 +59,7 @@ const StaticPage = props => {
                                 <Card.Title>Solar Energy</Card.Title>
                                 <Card.Img variant="top" src="/images/solar.jpg" rounded />
                                 <Card.Text>
-                                    2
+                                    Use Solar energy, its free and readily available. Install solar panels.
                                  </Card.Text>
                             </Card.Body>
                             <ListGroup className="list-group-flush">
@@ -76,7 +76,7 @@ const StaticPage = props => {
                                 <Card.Title>Go Vegan</Card.Title>
                                 <Card.Img variant="top" src="/images/vegan.jpg" rounded />
                                 <Card.Text>
-                                    go vegan
+                                    Go vegan! Reduce meat comsumption !
                                  </Card.Text>
                             </Card.Body>
                             <ListGroup className="list-group-flush">
@@ -110,7 +110,7 @@ const StaticPage = props => {
                             </ListGroup>
                             <Card.Body>
 
-                                <Card.Link href="https://www.epa.gov/statelocalenergy/local-renewable-energy-benefits-and-resources#:~:text=Environmental%20and%20economic%20benefits%20of,reducing%20dependence%20on%20imported%20fuels">Read More</Card.Link>
+                                <Card.Link href="https://www.epa.gov/recycle/recycling-basics">Read More</Card.Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -129,7 +129,7 @@ const StaticPage = props => {
                             </ListGroup>
                             <Card.Body>
 
-                                <Card.Link href="https://www.epa.gov/statelocalenergy/local-renewable-energy-benefits-and-resources#:~:text=Environmental%20and%20economic%20benefits%20of,reducing%20dependence%20on%20imported%20fuels">Read More</Card.Link>
+                                <Card.Link href="https://plastic.education/how-do-reusable-bags-help-the-environment/">Read More</Card.Link>
                             </Card.Body>
                         </Card>
                     </Col>
@@ -140,17 +140,16 @@ const StaticPage = props => {
                                 </Card.Title>
                                 <Card.Img variant="top" src="/images/waste.jpg" rounded />
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk of
-                                    the card's content.
+                                    Food waste produces most of the green house gases, please avoid food waste
                                 </Card.Text>
                             </Card.Body>
                             <ListGroup className="list-group-flush">
-                                <ListGroupItem>You save CO2e 13499 Kg/ Year</ListGroupItem>
+                                <ListGroupItem>You save CO2e:    / Year</ListGroupItem>
 
                             </ListGroup>
                             <Card.Body>
 
-                                <Card.Link href="https://www.epa.gov/statelocalenergy/local-renewable-energy-benefits-and-resources#:~:text=Environmental%20and%20economic%20benefits%20of,reducing%20dependence%20on%20imported%20fuels">Read More</Card.Link>
+                                <Card.Link href="https://www.worldwildlife.org/stories/fight-climate-change-by-preventing-food-waste#:~:text=But%20wasted%20food%20isn't,more%20potent%20than%20carbon%20dioxide.">Read More</Card.Link>
                             </Card.Body>
                         </Card>
                     </Col>
