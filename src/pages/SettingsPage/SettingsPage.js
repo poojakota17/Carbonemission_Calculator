@@ -27,11 +27,20 @@ const SettingsPage = props => {
   const [userName, setUserName] = useState(null);
   const [currentBudget, setCurrentBudget] = useState(0);
   const [currentSpendings, setCurrentSpendings] = useState(0);
+  const [period, setPeriod] = useState({});
+  const [today, setToday] = useState({});
 
   useEffect(() => {
+    getToday();
     fetchUserInfo();
     fetchBalanceInfo();
   }, []);
+
+  function getToday() {
+    const today = new Date();
+    setPeriod({year:today.getFullYear(), month: (today.getMonth() + 1)})
+    setToday({year:today.getFullYear(), month: (today.getMonth() + 1)})
+  }
 
   function fetchUserInfo() {
     Auth.currentAuthenticatedUser()
@@ -46,11 +55,16 @@ const SettingsPage = props => {
 
   function fetchBalanceInfo() {
     API.graphql({ query: listBalances })
-    .then((data) => console.log(data));
+    .then((data) => console.log(data)).catch(err => console.log(err));
   }
 
   function createNewBalance() {
-    API.graphql({ query: createBalanceMutation, variables: { input: {'cbudget': 4, 'cspendings': 6, 'period': "2020-04-01Z"} } }).catch(err => console.log(err));
+    const params = {
+      'cbudget': currentBudget,
+      'cspendings': currentSpendings,
+      'period': `${period.year}-${period.month}-01Z`
+    }
+    API.graphql({ query: createBalanceMutation, variables: { input: params } }).catch(err => console.log(err));
   }
 
 
@@ -64,6 +78,13 @@ const SettingsPage = props => {
     event.preventDefault();
     updateUserName();
     setNewName(null)
+  };
+
+  function handleBudgetSubmit (event) {
+    event.preventDefault();
+    console.log(currentBudget);
+    console.log(period)
+    createNewBalance();
   };
 
   function handleChange(event) {
@@ -86,8 +107,31 @@ const SettingsPage = props => {
           <Button variant="secondary" type="submit">Update
           </Button>
     </Form>
+    Update your budget:
+    <Form onSubmit={handleBudgetSubmit}>
+      <Form.Group controlId="update-budget-goal" className="m-0">
+        <Form.Label>Goal:</Form.Label>
+        <Form.Control type="number" onChange={(event) => {setCurrentBudget(event.target.value)}}placeholder="Loading data..."/>
+      </Form.Group>
+      <Form.Group controlId="choose-month">
+    <Form.Label>Month:</Form.Label>
+        <Form.Control as="select" onChange={(event) => {setPeriod({...period, month: event.target.value})}}>
+          <option value="01">Jan</option>
+          <option value="02">Feb</option>
+          <option value="03">March</option>
+        </Form.Control>
+      </Form.Group>
+      <Form.Group controlId="choose-month">
+    <Form.Label>Year:</Form.Label>
+        <Form.Control as="select" onChange={(event) => {setPeriod({...period, year: event.target.value})}}>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+        </Form.Control>
+      </Form.Group>
+          <Button variant="secondary" type="submit">Update</Button>
+    </Form>
     <Button onClick={fetchBalanceInfo}>All Budgets</Button>
-    <Button onClick={createNewBalance}>Create Budget</Button>
     </>
   );
 };
