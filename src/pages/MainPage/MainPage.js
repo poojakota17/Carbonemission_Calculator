@@ -7,6 +7,7 @@ import  { useState, useEffect } from 'react';
 import { API, Auth } from 'aws-amplify';
 import { listUsers } from '../../graphql/queries';
 import { createUser as createUserMutation, updateUser as updateUserMutation } from '../../graphql/mutations';
+import {UNavBar} from '../../components/UNavBar'
 
 const initialFormState = { username: '', budget: '' }
 const MainPage = props => {
@@ -23,7 +24,7 @@ const MainPage = props => {
     console.log("In fetchuser , after api data ", apiData)
     setUsers(apiData.data.listUsers.items);
   }
-  
+
   async function createUsers() {
     if (!formData.username || !formData.budget) return;
     await API.graphql({ query: createUserMutation, variables: { input: formData } });
@@ -32,12 +33,13 @@ const MainPage = props => {
     console.log(" printing setusers", setUsers)
     setFormData(initialFormState);
     fetchUsers();
-  } 
+  }
     return (
       <div className="App">
+      <UNavBar />
         <header className="App-header">
-          
-          <p><Logo /></p>
+
+
           <div style={{marginBottom: 30}}></div>
           <a
             className="App-link"
@@ -46,7 +48,7 @@ const MainPage = props => {
             rel="noopener noreferrer"
           >
             Learn React
-            
+
           </a>
           <AmplifyChatbot
             botName="calculatecarbonemissionbot_dev"
@@ -65,7 +67,7 @@ const MainPage = props => {
         value={formData.budget}
       />
       <button onClick={createUsers}> Okay </button>
-        
+
         <AmplifySignOut />
       </div>
     );

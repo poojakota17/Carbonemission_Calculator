@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom';
 import Amplify from "aws-amplify";
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import { MainPage } from './pages/MainPage'
+import { MainPage } from './pages/MainPage';
+import { StaticPage } from './pages/StaticPage';
 
 const UserApp = () => {
 
@@ -19,6 +20,7 @@ const UserApp = () => {
             <Switch>
                 <Route path="/user" exact render={() => <MainPage />}/>
                 <Route path="/user/hello" exact render={() => <div>user hello</div>}/>
+                <Route path="/static" exact render={() => <StaticPage />}/>
             </Switch>
         </div>
     );

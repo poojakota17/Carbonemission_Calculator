@@ -4,13 +4,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Container from 'react-bootstrap/Container'
 import config from './aws-exports';
 import Amplify from 'aws-amplify';
 Amplify.configure(config);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Container fluid>
+      <App />
+    </ Container>
   </React.StrictMode>,
   document.getElementById('root')
 );
