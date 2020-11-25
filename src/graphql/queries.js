@@ -7,6 +7,9 @@ export const getUser = /* GraphQL */ `
       id
       username
       budget
+      category
+      quantity
+      cevalue
       createdAt
       updatedAt
     }
@@ -14,7 +17,7 @@ export const getUser = /* GraphQL */ `
 `;
 export const listUsers = /* GraphQL */ `
   query ListUsers(
-    $filter: ModeluserFilterInput
+    $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
@@ -23,6 +26,9 @@ export const listUsers = /* GraphQL */ `
         id
         username
         budget
+        category
+        quantity
+        cevalue
         createdAt
         updatedAt
       }

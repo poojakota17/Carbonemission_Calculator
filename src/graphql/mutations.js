@@ -4,12 +4,15 @@
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
-    $condition: ModeluserConditionInput
+    $condition: ModelUserConditionInput
   ) {
     createUser(input: $input, condition: $condition) {
       id
       username
       budget
+      category
+      quantity
+      cevalue
       createdAt
       updatedAt
     }
@@ -18,12 +21,15 @@ export const createUser = /* GraphQL */ `
 export const updateUser = /* GraphQL */ `
   mutation UpdateUser(
     $input: UpdateUserInput!
-    $condition: ModeluserConditionInput
+    $condition: ModelUserConditionInput
   ) {
     updateUser(input: $input, condition: $condition) {
       id
       username
       budget
+      category
+      quantity
+      cevalue
       createdAt
       updatedAt
     }
@@ -32,12 +38,15 @@ export const updateUser = /* GraphQL */ `
 export const deleteUser = /* GraphQL */ `
   mutation DeleteUser(
     $input: DeleteUserInput!
-    $condition: ModeluserConditionInput
+    $condition: ModelUserConditionInput
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
       username
       budget
+      category
+      quantity
+      cevalue
       createdAt
       updatedAt
     }

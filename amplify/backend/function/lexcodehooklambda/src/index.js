@@ -1,11 +1,15 @@
 
 exports.handler = (event, context, callback) => {
-    const sessionAttributes = event.sessionAttributes;
-    const slots = event.currentIntent.slots;
-    const category = slots.category;
-    const food = slots.food;
-    const quantity = slots.Quantity;
-    const moreitem = slots.moreitem;
+    var sessionAttributes = event.sessionAttributes;
+    var slots = event.currentIntent.slots;
+    var category = slots.category;
+    const intentname = event.currentIntent.name
+    const food = slots.items;
+    const quantity = slots.quantity;
+
+    let source = event.invocationSource;
+    let confirm = slots.confirm;
+    let SA = {};
 
     // predefined list of available books
     const validcategory = ['food', 'fooditems', 'products'];
@@ -18,12 +22,12 @@ exports.handler = (event, context, callback) => {
     console.log(category)
     if (category && !(category === "") && validcategory.indexOf(category.toLowerCase()) === -1) {
         let response = {
-            sessionAttributes: event.sessionAttributes,
+            sessionAttributes: sessionAttributes,
             dialogAction: {
                 type: "ElicitSlot",
                 message: {
                     contentType: "PlainText",
-                    content: `sorry, we do not have this category: ${category}, Please choose from category -> food or products.`
+                    content: `sorry, we do not have this category: ${category}, Please choose from either food or products.`
                 },
                 intentName: event.currentIntent.name,
                 slots: slots,
@@ -33,118 +37,33 @@ exports.handler = (event, context, callback) => {
         callback(null, response);
     }
 
-    console.log("category")
-    console.log(category)
-
-    if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) === -1) {
-        let response = {
-            sessionAttributes: event.sessionAttributes,
-            dialogAction: {
-                type: "ElicitSlot",
-                message: {
-                    contentType: "PlainText",
-                    content: `Please enter a valid food item`
-                },
-                intentName: event.currentIntent.name,
-                slots: slots,
-                slotToElicit: "food"
-            }
+    if (confirm === 'yes' || confirm === 'y') {
+        if (sessionAttributes === null) {
+            sessionAttributes = {};
         }
-        callback(null, response);
-    }
-    console.log("food")
-    console.log(food)
-    if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) >= 0) {
+        let key = slots.items;
+        let value = slots.quantity;
+        SA[key] = value;
+        console.log("sessionattributes SA")
+        console.log(SA);
+        Object.assign(sessionAttributes, SA)
+
         let response = {
             sessionAttributes: sessionAttributes,
             dialogAction: {
-                type: "ElicitSlot",
-                message: {
-                    contentType: "PlainText",
-                    content: `Please enter the quantity for food item`
-                },
+                type: "Delegate",
+                slots: null
 
 
-                intentName: event.currentIntent.name,
-                slots: slots,
-                slotToElicit: "Quantity"
+
             }
         }
         callback(null, response);
     }
-    if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) >= 0 && quantity) {
-        let response = {
-            sessionAttributes: sessionAttributes,
-            dialogAction: {
-                type: "ElicitSlot",
-                message: {
-                    contentType: "PlainText",
-                    content: `Do you want to enter more items`
-                },
 
 
-                intentName: event.currentIntent.name,
-                slots: slots,
-                slotToElicit: "moreitem"
-            }
-        }
-        callback(null, response);
-    }
-    if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) >= 0 && quantity && validmoreitem.indexOf(moreitem.toLowerCase()) === -1) {
-        let response = {
-            sessionAttributes: sessionAttributes,
-            dialogAction: {
-                type: "ElicitSlot",
-                message: {
-                    contentType: "PlainText",
-                    content: `Please enter a valid response(yes/no or y/n)`
-                },
 
-
-                intentName: event.currentIntent.name,
-                slots: slots,
-                slotToElicit: "moreitem"
-            }
-        }
-        callback(null, response);
-    }
-    if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) >= 0 && quantity && validmoreitem.indexOf(moreitem.toLowerCase()) >= 0) {
-        let response = {
-            sessionAttributes: sessionAttributes,
-            dialogAction: {
-                type: "ElicitSlot",
-                message: {
-                    contentType: "PlainText",
-                    content: `Please enter a food item`
-                },
-
-
-                intentName: event.currentIntent.name,
-                slots: slots,
-                slotToElicit: "food"
-            }
-        }
-        callback(null, response);
-    }
     console.log(event)
-    if (category === 'food' && food && !(food === "") && validfooditmes.indexOf(food.toLowerCase()) >= 0 && quantity && validmoreitem.indexOf(moreitem.toLowerCase()) >= 0) {
-        let response = {
-            sessionAttributes: sessionAttributes,
-            dialogAction: {
-                type: "ElicitSlot",
-                message: {
-                    contentType: "PlainText",
-                    content: `Please enter the quantity`
-                },
-
-
-                intentName: event.currentIntent.name,
-                slots: slots,
-                slotToElicit: "Quantity"
-            }
-        }
-        callback(null, response);
-    }
     let response = {
         sessionAttributes: sessionAttributes,
         dialogAction: {

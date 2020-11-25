@@ -105,12 +105,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "carbonemission_calculator_cfnlambda_d20d7c2d",
+            "carbonemission_calculator_cfnlambda_e2173f67",
             {
               "Fn::Join": [
                 "",
                 [
-                  "carbonemission_calculator_cfnlambda_d20d7c2d",
+                  "carbonemission_calculator_cfnlambda_e2173f67",
                   "-",
                   {
                     "Ref": "env"
@@ -137,7 +137,7 @@
         "Timeout": "300",
         "Code": {
           "S3Bucket": "amplify-carbonemission-dev-52613-deployment",
-          "S3Key": "amplify-builds/carbonemissionlex-317a5a6b4b6155537537-build.zip"
+          "S3Key": "amplify-builds/carbonemissionlex-73664f385362595a4554-build.zip"
         }
       }
     },
@@ -147,12 +147,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "lexLambdaRoled20d7c2d",
+            "lexLambdaRolee2173f67",
             {
               "Fn::Join": [
                 "",
                 [
-                  "lexLambdaRoled20d7c2d",
+                  "lexLambdaRolee2173f67",
                   "-",
                   {
                     "Ref": "env"
@@ -180,7 +180,7 @@
         },
         "Policies": [
           {
-            "PolicyName": "cloudWatchPolicyd20d7c2d",
+            "PolicyName": "cloudWatchPolicye2173f67",
             "PolicyDocument": {
               "Version": "2012-10-17",
               "Statement": [
@@ -197,7 +197,7 @@
             }
           },
           {
-            "PolicyName": "lexPolicyd20d7c2d",
+            "PolicyName": "lexPolicye2173f67",
             "PolicyDocument": {
               "Version": "2012-10-17",
               "Statement": [
@@ -227,7 +227,7 @@
             }
           },
           {
-            "PolicyName": "lambdaPolicyd20d7c2d",
+            "PolicyName": "lambdaPolicye2173f67",
             "PolicyDocument": {
               "Version": "2012-10-17",
               "Statement": [
@@ -244,7 +244,7 @@
         ]
       }
     },
-    "LambdaFunctionOutputs1b852124": {
+    "LambdaFunctionOutputse4c1e55c": {
       "Type": "Custom::LambdaCallout",
       "Properties": {
         "ServiceToken": {
@@ -270,7 +270,7 @@
     "CognitoUnauthPolicy": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
-        "PolicyName": "lex_amplify_d20d7c2d",
+        "PolicyName": "lex_amplify_e2173f67",
         "Roles": [
           {
             "Ref": "unauthRoleName"
@@ -340,7 +340,7 @@
     "CognitoAuthPolicy": {
       "Type": "AWS::IAM::Policy",
       "Properties": {
-        "PolicyName": "lex_amplify_d20d7c2d",
+        "PolicyName": "lex_amplify_e2173f67",
         "Roles": [
           {
             "Ref": "authRoleName"

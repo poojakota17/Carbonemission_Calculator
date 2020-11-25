@@ -12,6 +12,7 @@ const WelcomePage = props => {
       <WNavBar />
       <h3>HERE WILL BE OUR WELCOME SCREEN</h3>
       <Link to="/user">GO TO USER PAGE</Link>
+      <Link to="/static"> Go to static page</Link>
         </div>
   );
 };

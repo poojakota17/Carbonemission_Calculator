@@ -1,5 +1,11 @@
 {
     "AppSyncApiName": "carbonemissioncalci",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcarbonemission056d6878",
+            "Outputs.UserPoolId"
+        ]
+    }
 }

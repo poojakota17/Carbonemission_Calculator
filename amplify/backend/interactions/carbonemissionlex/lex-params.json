@@ -13,38 +13,31 @@
             "confirmationQuestion": "Are you ready to calculate carbon emission for the products?",
             "slots": [
                 {
-                    "name": "category",
-                    "type": "category",
-                    "prompt": "Which category of products ,food or goods?",
+                    "name": "items",
+                    "type": "items",
+                    "prompt": "Please enter your product name.",
                     "required": true,
                     "customType": true
                 },
                 {
-                    "name": "food",
-                    "type": "fooditems",
-                    "prompt": "what food items?",
-                    "required": true,
-                    "customType": true
-                },
-                {
-                    "name": "goods",
-                    "type": "goods",
-                    "prompt": "What type of goods?",
-                    "required": true,
-                    "customType": true
-                },
-                {
-                    "name": "Quantity",
+                    "name": "quantity",
                     "type": "AMAZON.NUMBER",
-                    "prompt": "What quantity",
+                    "prompt": "Please enter quantity of {items} (Enter quantity as number. If item is food, quantity is in kilogram, if item is a product, quantity is total number of products) ",
                     "required": true,
                     "customType": false
                 },
                 {
-                    "name": "moreitem",
-                    "type": "boolean",
-                    "prompt": "Do you want to add more items?",
+                    "name": "confirm",
+                    "type": "confirmitem",
+                    "prompt": "Do you want to enter more items? Please enter y/n or yes/no.",
                     "required": true,
+                    "customType": true
+                },
+                {
+                    "name": "products",
+                    "type": "producttype",
+                    "prompt": "Please enter an item of type product.",
+                    "required": false,
                     "customType": true
                 }
             ],
@@ -77,13 +70,13 @@
                     ]
                 },
                 {
-                    "slotType": "fooditems",
-                    "slotTypeDescription": "types of food items",
+                    "slotType": "items",
+                    "slotTypeDescription": "type of item",
                     "slotValues": [
                         "coffee",
+                        "beef",
                         "chocolate",
                         "lamb",
-                        "beef",
                         "fish",
                         "redMeat",
                         "whiteMeat",
@@ -101,38 +94,30 @@
                         "vegetables",
                         "milk",
                         "fruit",
-                        "lentils"
+                        "lentils",
+                        "canesugar",
+                        "groundnuts",
+                        "wheat",
+                        "rye",
+                        "tomatoes",
+                        "maize",
+                        "cassava",
+                        "soymilk",
+                        "peas",
+                        "bananas",
+                        "citrus fruits",
+                        "root vegetables",
+                        "apples",
+                        "prawns"
                     ]
                 },
                 {
-                    "slotType": "goods",
-                    "slotTypeDescription": "type of goods",
-                    "slotValues": [
-                        "shirt",
-                        "tshirt",
-                        "jeans",
-                        "sweater",
-                        "coat",
-                        "dress",
-                        "shoes",
-                        "smartphone",
-                        "tablet",
-                        "computer",
-                        "laptop",
-                        "tv",
-                        "fossilFuelCar",
-                        "hybridCar",
-                        "electricCar",
-                        "electricity"
-                    ]
-                },
-                {
-                    "slotType": "boolean",
-                    "slotTypeDescription": "want to add more item",
+                    "slotType": "confirmitem",
+                    "slotTypeDescription": "give confirm",
                     "slotValues": [
                         "yes",
-                        "y",
                         "no",
+                        "y",
                         "n"
                     ]
                 }
@@ -142,5 +127,5 @@
     "outputVoice": "Joanna",
     "sessionTimeout": "10",
     "coppa": false,
-    "shortId": "1b852124"
+    "shortId": "e4c1e55c"
 }
