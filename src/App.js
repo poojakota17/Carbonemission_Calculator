@@ -21,6 +21,7 @@ const App = () => {
                 <Route path="/about" exact render={() => <AboutPage />}/>
                 <Route path="/" exact render={() => <WelcomePage />}/>
                 <Route path="/user" render={() => <UserApp />}/>
+                <Route path='/static' render={() => <StaticPage />} />
             </Switch>
         </Router>
     );
