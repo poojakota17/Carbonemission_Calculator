@@ -1,45 +1,87 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+export const onCreateBalance = /* GraphQL */ `
+  subscription OnCreateBalance($owner: String!) {
+    onCreateBalance(owner: $owner) {
       id
-      username
-      budget
-      category
-      quantity
-      cevalue
+      period
+      cbudget
+      cspendings
       createdAt
       updatedAt
+      owner
     }
   }
 `;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+export const onUpdateBalance = /* GraphQL */ `
+  subscription OnUpdateBalance($owner: String!) {
+    onUpdateBalance(owner: $owner) {
       id
-      username
-      budget
-      category
-      quantity
-      cevalue
+      period
+      cbudget
+      cspendings
       createdAt
       updatedAt
+      owner
     }
   }
 `;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+export const onDeleteBalance = /* GraphQL */ `
+  subscription OnDeleteBalance($owner: String!) {
+    onDeleteBalance(owner: $owner) {
       id
-      username
-      budget
-      category
-      quantity
-      cevalue
+      period
+      cbudget
+      cspendings
       createdAt
       updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateSpendings = /* GraphQL */ `
+  subscription OnCreateSpendings($owner: String!) {
+    onCreateSpendings(owner: $owner) {
+      id
+      title
+      score
+      metadata {
+        category
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateSpendings = /* GraphQL */ `
+  subscription OnUpdateSpendings($owner: String!) {
+    onUpdateSpendings(owner: $owner) {
+      id
+      title
+      score
+      metadata {
+        category
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteSpendings = /* GraphQL */ `
+  subscription OnDeleteSpendings($owner: String!) {
+    onDeleteSpendings(owner: $owner) {
+      id
+      title
+      score
+      metadata {
+        category
+      }
+      createdAt
+      updatedAt
+      owner
     }
   }
 `;
