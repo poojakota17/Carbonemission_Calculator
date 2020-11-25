@@ -19,7 +19,7 @@ const WNavBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
         <Nav.Link href="/about" className="mx-3">About Us</Nav.Link>
-        <Button variant="custom" className="mx-3" href="/user">Log In</Button>
+        <Button variant="custom" className="btn btn-lg loginBtn" href="/user">Log In</Button>
       </Nav>
       </Navbar.Collapse>
     </Navbar>

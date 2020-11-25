@@ -11,3 +11,12 @@
   background-color: var(--greeny);
   color: rgba(0, 0, 0, 0.5);
 }
+
+.loginBtn:hover {
+  color: white;
+  backgrounf-color: green;
+}
+
+.loginBtn {
+   transition: color 1s background-color 1s;
+}
