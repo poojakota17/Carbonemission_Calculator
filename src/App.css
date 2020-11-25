@@ -1,3 +1,8 @@
 .navbar-brand {
   width: 3rem;
 }
+
+.amplify-sign-out {
+  --background-color: #02387b;
+  --border-color: #02387b;
+}

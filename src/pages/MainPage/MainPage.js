@@ -5,8 +5,8 @@ import { AmplifyChatbot } from "@aws-amplify/ui-react";
 import { ReactComponent as Logo} from '../../logo.svg';
 import  { useState, useEffect } from 'react';
 import { API, Auth } from 'aws-amplify';
-import { listUsers } from '../../graphql/queries';
-import { createUser as createUserMutation, updateUser as updateUserMutation } from '../../graphql/mutations';
+//import { listUsers } from '../../graphql/queries';
+//import { createUser as createUserMutation, updateUser as updateUserMutation } from '../../graphql/mutations';
 import {UNavBar} from '../../components/UNavBar'
 
 const initialFormState = { username: '', budget: '' }
@@ -15,10 +15,10 @@ const MainPage = props => {
   const [formData, setFormData] = useState(initialFormState);
 
   useEffect(() => {
-    fetchUsers();
+  //  fetchUsers();
   }, []);
 
-  async function fetchUsers() {
+  /*async function fetchUsers() {
     console.log("In fetchuser function")
     const apiData = await API.graphql({ query: listUsers });
     console.log("In fetchuser , after api data ", apiData)
@@ -33,7 +33,7 @@ const MainPage = props => {
     console.log(" printing setusers", setUsers)
     setFormData(initialFormState);
     fetchUsers();
-  }
+  }*/
     return (
       <div className="App">
       <UNavBar />
@@ -66,9 +66,7 @@ const MainPage = props => {
         placeholder=" Set Up a monthly budget"
         value={formData.budget}
       />
-      <button onClick={createUsers}> Okay </button>
-
-        <AmplifySignOut />
+      
       </div>
     );
 };
