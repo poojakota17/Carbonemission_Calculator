@@ -160,6 +160,10 @@ const StaticPage = props => {
        
         </div> 
 <br/>
+<div>
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-0d1cd714-8c4e-493e-9ff4-cf2e9f022f3e"></div>
+</div>
     </div>
     );
 };

@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import { Paper } from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+//import { Paper } from '@material-ui/core';
+//import { IconButton } from '@material-ui/core';
+//import FavoriteIcon from '@material-ui/icons/Favorite';
 import {WNavBar} from '../../components/WNavBar'
 import { API, Auth, graphqlOperation, photoPlaceholder  } from 'aws-amplify';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listPosts } from '../../graphql/queries';
-import DeleteIcon from '@material-ui/icons/Delete';
+//import DeleteIcon from '@material-ui/icons/Delete';
 import { createPost as createPostMutation, deletePost as deletePostMutation, updatePost as updatePostMutation } from '../../graphql/mutations';
+import { Container } from 'react-bootstrap';
 
 const initialFormState = { title: '', post : '', uname: '', like: 0}
 const PostPage = (props) => {
@@ -92,29 +93,33 @@ const PostPage = (props) => {
       />
       <p>{userEmail}</p>
       <button onClick={createPost}>Post</button>
+      
       <div>
         {posts.map((post,idx) => {
           return (
-            <paper key={`post${idx}`} elevation={3} variant="outlined">
+            
+            <div key={`post${idx}`} >
               <div>
                 <div key={post.id || post.title}>
                   <h2>{post.title}</h2>
                   <p>{post.post}</p>
                   
                   <p>{post.uname}</p>
-                  <IconButton onClick={()=> deletePost(post)}>
-                      <DeleteIcon />
-                  </IconButton>
-                  <IconButton onClick={()=>hitLike(idx)}>
+                  <button onClick={()=> deletePost(post)}>
+                      Del
+                  </button>
+                  <button onClick={()=>hitLike(idx)}>
                   <p>{post.like}</p>
-                  <FavoriteIcon />
-                  </IconButton>
+                  like
+                  </button>
                 </div>
               </div>
-            </paper>
+            </div>
+           
           );
         })}
       </div>
+     
     </>
   );
 };
