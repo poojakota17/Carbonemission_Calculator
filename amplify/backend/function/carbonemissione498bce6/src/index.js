@@ -1,4 +1,10 @@
-//import { food } from 'carbon-footprint'
+/* Amplify Params - DO NOT EDIT
+	API_CARBONEMISSIONCALCI_GRAPHQLAPIENDPOINTOUTPUT
+	API_CARBONEMISSIONCALCI_GRAPHQLAPIIDOUTPUT
+	AUTH_CARBONEMISSION056D6878_USERPOOLID
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT *///import { food } from 'carbon-footprint'
 food = require('carbon-footprint')
 
 exports.handler = async (event, context, callback) => {

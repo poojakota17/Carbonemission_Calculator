@@ -21,8 +21,10 @@ type MetaData {
 }
 enum Category { food products }
 
-type Post @model @auth(rules: [{ allow: owner, operations: [create, delete, update] }]) {
+type Post @model @auth(rules: [{ allow: owner, operations: [create, delete, update,read] }]) {
 id: ID!
-uname: String
+title: String
 post: String
+uname: String
+like: Int
 }
