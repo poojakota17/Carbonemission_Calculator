@@ -79,14 +79,13 @@ export const getPost = /* GraphQL */ `
   query GetPost($id: ID!) {
     getPost(id: $id) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
@@ -99,14 +98,13 @@ export const listPosts = /* GraphQL */ `
     listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        uname
+        title
         post
+        uname
+        like
         createdAt
         updatedAt
-<<<<<<< HEAD
         owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
       }
       nextToken
     }

@@ -92,47 +92,44 @@ export const onDeleteSpendings = /* GraphQL */ `
   }
 `;
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+  subscription OnCreatePost($owner: String!) {
+    onCreatePost(owner: $owner) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+  subscription OnUpdatePost($owner: String!) {
+    onUpdatePost(owner: $owner) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+  subscription OnDeletePost($owner: String!) {
+    onDeletePost(owner: $owner) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;

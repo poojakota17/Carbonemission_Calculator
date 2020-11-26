@@ -19,12 +19,17 @@ const MainPage = props => {
   }, []);
 
   /*async function fetchUsers() {
+    fetchUsers();
+  }, []);
+
+  async function fetchUsers() {
     console.log("In fetchuser function")
     const apiData = await API.graphql({ query: listUsers });
     console.log("In fetchuser , after api data ", apiData)
     setUsers(apiData.data.listUsers.items);
   }
 
+  
   async function createUsers() {
     if (!formData.username || !formData.budget) return;
     await API.graphql({ query: createUserMutation, variables: { input: formData } });
@@ -34,12 +39,13 @@ const MainPage = props => {
     setFormData(initialFormState);
     fetchUsers();
   }*/
+  
     return (
       <div className="App">
       <UNavBar />
         <header className="App-header">
-
-
+          
+          <p><Logo /></p>
           <div style={{marginBottom: 30}}></div>
           <a
             className="App-link"
@@ -48,7 +54,7 @@ const MainPage = props => {
             rel="noopener noreferrer"
           >
             Learn React
-
+            
           </a>
           <AmplifyChatbot
             botName="calculatecarbonemissionbot_dev"
@@ -66,7 +72,9 @@ const MainPage = props => {
         placeholder=" Set Up a monthly budget"
         value={formData.budget}
       />
-      
+        
+        <AmplifySignOut />
+
       </div>
     );
 };

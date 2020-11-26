@@ -116,14 +116,13 @@ export const createPost = /* GraphQL */ `
   ) {
     createPost(input: $input, condition: $condition) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
@@ -134,14 +133,13 @@ export const updatePost = /* GraphQL */ `
   ) {
     updatePost(input: $input, condition: $condition) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
@@ -152,14 +150,13 @@ export const deletePost = /* GraphQL */ `
   ) {
     deletePost(input: $input, condition: $condition) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
