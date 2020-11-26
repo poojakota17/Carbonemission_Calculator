@@ -15,27 +15,21 @@ const MainPage = props => {
   const [formData, setFormData] = useState(initialFormState);
 
   useEffect(() => {
-<<<<<<< HEAD
   //  fetchUsers();
   }, []);
 
   /*async function fetchUsers() {
-=======
     fetchUsers();
   }, []);
 
   async function fetchUsers() {
->>>>>>> 09fdf6b... added static page
     console.log("In fetchuser function")
     const apiData = await API.graphql({ query: listUsers });
     console.log("In fetchuser , after api data ", apiData)
     setUsers(apiData.data.listUsers.items);
   }
-<<<<<<< HEAD
 
-=======
   
->>>>>>> 09fdf6b... added static page
   async function createUsers() {
     if (!formData.username || !formData.budget) return;
     await API.graphql({ query: createUserMutation, variables: { input: formData } });
@@ -44,22 +38,14 @@ const MainPage = props => {
     console.log(" printing setusers", setUsers)
     setFormData(initialFormState);
     fetchUsers();
-<<<<<<< HEAD
   }*/
-=======
-  } 
->>>>>>> 09fdf6b... added static page
+  
     return (
       <div className="App">
       <UNavBar />
         <header className="App-header">
-<<<<<<< HEAD
-
-
-=======
           
           <p><Logo /></p>
->>>>>>> 09fdf6b... added static page
           <div style={{marginBottom: 30}}></div>
           <a
             className="App-link"
@@ -68,11 +54,7 @@ const MainPage = props => {
             rel="noopener noreferrer"
           >
             Learn React
-<<<<<<< HEAD
-
-=======
             
->>>>>>> 09fdf6b... added static page
           </a>
           <AmplifyChatbot
             botName="calculatecarbonemissionbot_dev"
@@ -90,13 +72,9 @@ const MainPage = props => {
         placeholder=" Set Up a monthly budget"
         value={formData.budget}
       />
-<<<<<<< HEAD
-      
-=======
-      <button onClick={createUsers}> Okay </button>
         
         <AmplifySignOut />
->>>>>>> 09fdf6b... added static page
+
       </div>
     );
 };
