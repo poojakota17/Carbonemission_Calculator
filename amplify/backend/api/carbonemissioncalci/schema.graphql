@@ -23,6 +23,8 @@ enum Category { food products }
 
 type Post @model @auth(rules: [{ allow: owner, operations: [create, delete, update] }]) {
 id: ID!
-uname: String
+title: String
 post: String
+uname: String
+like: Int
 }

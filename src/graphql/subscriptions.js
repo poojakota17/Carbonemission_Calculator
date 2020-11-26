@@ -45,7 +45,9 @@ export const onCreateSpendings = /* GraphQL */ `
     onCreateSpendings(owner: $owner) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -60,7 +62,9 @@ export const onUpdateSpendings = /* GraphQL */ `
     onUpdateSpendings(owner: $owner) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -75,7 +79,9 @@ export const onDeleteSpendings = /* GraphQL */ `
     onDeleteSpendings(owner: $owner) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -89,10 +95,13 @@ export const onCreatePost = /* GraphQL */ `
   subscription OnCreatePost {
     onCreatePost {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -100,10 +109,13 @@ export const onUpdatePost = /* GraphQL */ `
   subscription OnUpdatePost {
     onUpdatePost {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -111,10 +123,13 @@ export const onDeletePost = /* GraphQL */ `
   subscription OnDeletePost {
     onDeletePost {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
+      owner
     }
   }
 `;

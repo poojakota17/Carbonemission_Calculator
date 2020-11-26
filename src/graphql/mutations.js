@@ -57,7 +57,9 @@ export const createSpendings = /* GraphQL */ `
     createSpendings(input: $input, condition: $condition) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -75,7 +77,9 @@ export const updateSpendings = /* GraphQL */ `
     updateSpendings(input: $input, condition: $condition) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -93,7 +97,9 @@ export const deleteSpendings = /* GraphQL */ `
     deleteSpendings(input: $input, condition: $condition) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -110,10 +116,13 @@ export const createPost = /* GraphQL */ `
   ) {
     createPost(input: $input, condition: $condition) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -124,10 +133,13 @@ export const updatePost = /* GraphQL */ `
   ) {
     updatePost(input: $input, condition: $condition) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -138,10 +150,13 @@ export const deletePost = /* GraphQL */ `
   ) {
     deletePost(input: $input, condition: $condition) {
       id
-      uname
+      title
       post
+      uname
+      like
       createdAt
       updatedAt
+      owner
     }
   }
 `;
