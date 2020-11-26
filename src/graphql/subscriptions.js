@@ -99,7 +99,10 @@ export const onCreatePost = /* GraphQL */ `
       post
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
@@ -111,7 +114,10 @@ export const onUpdatePost = /* GraphQL */ `
       post
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
@@ -123,7 +129,10 @@ export const onDeletePost = /* GraphQL */ `
       post
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;

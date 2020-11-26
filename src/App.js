@@ -11,6 +11,7 @@ import UserApp from './UserApp'
 import { WelcomePage } from './pages/WelcomePage';
 import { AboutPage } from './pages/AboutPage';
 import { StaticPage } from './pages/StaticPage';
+import { PostPage } from './pages/PostPage';
 
 console.log("Start of APP");
 
@@ -21,7 +22,8 @@ const App = () => {
                 <Route path="/about" exact render={() => <AboutPage />}/>
                 <Route path="/" exact render={() => <WelcomePage />}/>
                 <Route path="/user" render={() => <UserApp />}/>
-                <Route path='/static' render={() => <StaticPage />} />
+                <Route path='user/static' render={() => <StaticPage />} />
+                <Route path="user/postpage" render={()=> <PostPage />} />
             </Switch>
         </Router>
     );

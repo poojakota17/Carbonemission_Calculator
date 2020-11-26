@@ -83,7 +83,10 @@ export const getPost = /* GraphQL */ `
       post
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
     }
   }
 `;
@@ -100,7 +103,10 @@ export const listPosts = /* GraphQL */ `
         post
         createdAt
         updatedAt
+<<<<<<< HEAD
         owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
       }
       nextToken
     }
