@@ -12,6 +12,7 @@ import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { MainPage } from './pages/MainPage';
 import { StaticPage } from './pages/StaticPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { PostPage } from './pages/PostPage';
 
 const UserApp = () => {
 
@@ -22,6 +23,7 @@ const UserApp = () => {
                 <Route path="/user/hello" exact render={() => <div>user hello</div>}/>
                 <Route path="/user/static" exact render={() => <StaticPage />}/>
                 <Route path="/user/settings" exact render={() => <SettingsPage />}/>
+                <Route path="/user/postpage" exact render={() => <PostPage />}/>
             </Switch>
         </div>
     );
