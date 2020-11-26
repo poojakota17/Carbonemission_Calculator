@@ -5,27 +5,31 @@ export const getBalance = /* GraphQL */ `
   query GetBalance($id: ID!) {
     getBalance(id: $id) {
       id
-      period
-      cbudget
-      cspendings
+      username
+      budget
+      category
+      quantity
+      cevalue
       createdAt
       updatedAt
       owner
     }
   }
 `;
-export const listBalances = /* GraphQL */ `
-  query ListBalances(
-    $filter: ModelBalanceFilterInput
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
     listBalances(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        period
-        cbudget
-        cspendings
+        username
+        budget
+        category
+        quantity
+        cevalue
         createdAt
         updatedAt
         owner

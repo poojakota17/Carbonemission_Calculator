@@ -5,9 +5,17 @@ export const onCreateBalance = /* GraphQL */ `
   subscription OnCreateBalance($owner: String!) {
     onCreateBalance(owner: $owner) {
       id
+<<<<<<< HEAD
       period
       cbudget
       cspendings
+=======
+      username
+      budget
+      category
+      quantity
+      cevalue
+>>>>>>> 09fdf6b... added static page
       createdAt
       updatedAt
       owner
@@ -18,9 +26,17 @@ export const onUpdateBalance = /* GraphQL */ `
   subscription OnUpdateBalance($owner: String!) {
     onUpdateBalance(owner: $owner) {
       id
+<<<<<<< HEAD
       period
       cbudget
       cspendings
+=======
+      username
+      budget
+      category
+      quantity
+      cevalue
+>>>>>>> 09fdf6b... added static page
       createdAt
       updatedAt
       owner
@@ -31,9 +47,17 @@ export const onDeleteBalance = /* GraphQL */ `
   subscription OnDeleteBalance($owner: String!) {
     onDeleteBalance(owner: $owner) {
       id
+<<<<<<< HEAD
       period
       cbudget
       cspendings
+=======
+      username
+      budget
+      category
+      quantity
+      cevalue
+>>>>>>> 09fdf6b... added static page
       createdAt
       updatedAt
       owner
