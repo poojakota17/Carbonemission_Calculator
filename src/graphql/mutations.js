@@ -122,7 +122,10 @@ export const createPost = /* GraphQL */ `
       like
       createdAt
       updatedAt
+
+    
       owner
+>>>>>>> 09ab138f0789e2b71e06326579d120a075982119
     }
   }
 `;
@@ -139,7 +142,10 @@ export const updatePost = /* GraphQL */ `
       like
       createdAt
       updatedAt
+ 
       owner
+
+
     }
   }
 `;
@@ -156,7 +162,14 @@ export const deletePost = /* GraphQL */ `
       like
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+<<<<<<< HEAD
+      owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
+>>>>>>> 09ab138f0789e2b71e06326579d120a075982119
     }
   }
 `;

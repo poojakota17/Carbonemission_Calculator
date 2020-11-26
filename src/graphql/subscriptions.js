@@ -5,9 +5,17 @@ export const onCreateBalance = /* GraphQL */ `
   subscription OnCreateBalance($owner: String!) {
     onCreateBalance(owner: $owner) {
       id
+<<<<<<< HEAD
       period
       cbudget
       cspendings
+=======
+      username
+      budget
+      category
+      quantity
+      cevalue
+>>>>>>> 09fdf6b... added static page
       createdAt
       updatedAt
       owner
@@ -18,9 +26,17 @@ export const onUpdateBalance = /* GraphQL */ `
   subscription OnUpdateBalance($owner: String!) {
     onUpdateBalance(owner: $owner) {
       id
+<<<<<<< HEAD
       period
       cbudget
       cspendings
+=======
+      username
+      budget
+      category
+      quantity
+      cevalue
+>>>>>>> 09fdf6b... added static page
       createdAt
       updatedAt
       owner
@@ -31,9 +47,17 @@ export const onDeleteBalance = /* GraphQL */ `
   subscription OnDeleteBalance($owner: String!) {
     onDeleteBalance(owner: $owner) {
       id
+<<<<<<< HEAD
       period
       cbudget
       cspendings
+=======
+      username
+      budget
+      category
+      quantity
+      cevalue
+>>>>>>> 09fdf6b... added static page
       createdAt
       updatedAt
       owner
@@ -92,8 +116,8 @@ export const onDeleteSpendings = /* GraphQL */ `
   }
 `;
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost($owner: String!) {
-    onCreatePost(owner: $owner) {
+  subscription OnCreatePost {
+    onCreatePost {
       id
       title
       post
@@ -101,13 +125,20 @@ export const onCreatePost = /* GraphQL */ `
       like
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+<<<<<<< HEAD
+      owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
+>>>>>>> 09ab138f0789e2b71e06326579d120a075982119
     }
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost($owner: String!) {
-    onUpdatePost(owner: $owner) {
+  subscription OnUpdatePost {
+    onUpdatePost {
       id
       title
       post
@@ -115,13 +146,20 @@ export const onUpdatePost = /* GraphQL */ `
       like
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+<<<<<<< HEAD
+      owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
+>>>>>>> 09ab138f0789e2b71e06326579d120a075982119
     }
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost($owner: String!) {
-    onDeletePost(owner: $owner) {
+  subscription OnDeletePost {
+    onDeletePost {
       id
       title
       post
@@ -129,7 +167,14 @@ export const onDeletePost = /* GraphQL */ `
       like
       createdAt
       updatedAt
+<<<<<<< HEAD
       owner
+=======
+<<<<<<< HEAD
+      owner
+=======
+>>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
+>>>>>>> 09ab138f0789e2b71e06326579d120a075982119
     }
   }
 `;
