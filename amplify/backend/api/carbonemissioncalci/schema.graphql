@@ -1,5 +1,6 @@
 type Balance @model @auth(rules: [{ allow: owner }])
-  @key(name: "balanceByMonth", fields: ["period"], queryField: "balanceByMonth") {
+  @key(name: "balanceByMonth", fields: ["period"], queryField: "balanceByMonth")
+  @key(name: "byPeriod", fields: ["period", "id"], queryField: "balanceByPeriod") {
   id: ID!
   period: AWSDate!
   cbudget: Int
@@ -9,7 +10,9 @@ type Balance @model @auth(rules: [{ allow: owner }])
 type Spendings @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   title: String!
-  score: Int
+  quantity: Int
+  emission: Int
+  period: AWSDate!
   metadata: MetaData
 }
 
@@ -17,3 +20,9 @@ type MetaData {
  category: Category
 }
 enum Category { food products }
+
+type Post @model @auth(rules: [{ allow: owner, operations: [create, delete, update] }]) {
+id: ID!
+uname: String
+post: String
+}

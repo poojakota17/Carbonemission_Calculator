@@ -26,6 +26,7 @@ const UNavBar = () => {
         <Nav.Link href="/user/static" className="mx-3">Manjiri's Static Page</Nav.Link>
         <Nav.Link href="/about" className="mx-3">About Us</Nav.Link>
         <Nav.Link href="/user/settings" className="mx-3">Settings</Nav.Link>
+        <Nav.Link href="/user/postpage" className="mx-3">PostPage</Nav.Link>
         <Button variant="ubar" className="mx-3" onClick={handleClick} href="/user">Log Out</Button>
       </Nav>
       </Navbar.Collapse>

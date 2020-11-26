@@ -71,6 +71,35 @@ export const listSpendingss = /* GraphQL */ `
     }
   }
 `;
+export const getPost = /* GraphQL */ `
+  query GetPost($id: ID!) {
+    getPost(id: $id) {
+      id
+      uname
+      post
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPosts = /* GraphQL */ `
+  query ListPosts(
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        uname
+        post
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const balanceByMonth = /* GraphQL */ `
   query BalanceByMonth(
     $period: AWSDate
