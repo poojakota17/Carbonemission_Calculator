@@ -39,7 +39,9 @@ export const getSpendings = /* GraphQL */ `
     getSpendings(id: $id) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -59,10 +61,43 @@ export const listSpendingss = /* GraphQL */ `
       items {
         id
         title
-        score
+        quantity
+        emission
+        period
         metadata {
           category
         }
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getPost = /* GraphQL */ `
+  query GetPost($id: ID!) {
+    getPost(id: $id) {
+      id
+      uname
+      post
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listPosts = /* GraphQL */ `
+  query ListPosts(
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        uname
+        post
         createdAt
         updatedAt
         owner
@@ -81,6 +116,36 @@ export const balanceByMonth = /* GraphQL */ `
   ) {
     balanceByMonth(
       period: $period
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        period
+        cbudget
+        cspendings
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const balanceByPeriod = /* GraphQL */ `
+  query BalanceByPeriod(
+    $period: AWSDate
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelBalanceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    balanceByPeriod(
+      period: $period
+      id: $id
       sortDirection: $sortDirection
       filter: $filter
       limit: $limit

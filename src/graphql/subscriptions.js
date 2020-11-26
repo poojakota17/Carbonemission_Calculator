@@ -45,7 +45,9 @@ export const onCreateSpendings = /* GraphQL */ `
     onCreateSpendings(owner: $owner) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -60,7 +62,9 @@ export const onUpdateSpendings = /* GraphQL */ `
     onUpdateSpendings(owner: $owner) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
@@ -75,10 +79,48 @@ export const onDeleteSpendings = /* GraphQL */ `
     onDeleteSpendings(owner: $owner) {
       id
       title
-      score
+      quantity
+      emission
+      period
       metadata {
         category
       }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreatePost = /* GraphQL */ `
+  subscription OnCreatePost {
+    onCreatePost {
+      id
+      uname
+      post
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdatePost = /* GraphQL */ `
+  subscription OnUpdatePost {
+    onUpdatePost {
+      id
+      uname
+      post
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeletePost = /* GraphQL */ `
+  subscription OnDeletePost {
+    onDeletePost {
+      id
+      uname
+      post
       createdAt
       updatedAt
       owner
