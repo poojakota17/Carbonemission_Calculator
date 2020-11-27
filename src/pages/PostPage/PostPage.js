@@ -1,33 +1,18 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect, useReducer } from 'react';
-//import { Paper } from '@material-ui/core';
-//import { IconButton } from '@material-ui/core';
-//import FavoriteIcon from '@material-ui/icons/Favorite';
-=======
-import React, { useState, useEffect } from 'react';
->>>>>>> parent of 2035790...  Created Post app, where owner can like their posts
 import {WNavBar} from '../../components/WNavBar'
 import { API, Auth } from 'aws-amplify';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listPosts } from '../../graphql/queries';
-<<<<<<< HEAD
-//import DeleteIcon from '@material-ui/icons/Delete';
 import { createPost as createPostMutation, deletePost as deletePostMutation, updatePost as updatePostMutation } from '../../graphql/mutations';
 import { Container } from 'react-bootstrap';
+
 
 const initialFormState = { title: '', post : '', uname: '', like: 0}
 const PostPage = (props) => {
   const [posts, setPosts] = useState([]);
   const [userEmail, setUserEmail] = useState("");
   const [formData, setFormData] = useState(initialFormState);
-=======
-import { createPost as createPostMutation, deletePost as deletePostMutation } from '../../graphql/mutations';
-const initialFormState = { title: '', post : '' }
-const PostPage = props => {
-const [posts, setPosts] = useState([]);
-const [userEmail, setUserEmail] = useState("");
-const [formData, setFormData] = useState(initialFormState);
->>>>>>> parent of 2035790...  Created Post app, where owner can like their posts
 
   useEffect(() => {
     fetchPosts();
@@ -61,7 +46,27 @@ const [formData, setFormData] = useState(initialFormState);
     const newPostsArray = posts.filter(post => post.id !== id);
     setPosts(newPostsArray);
     await API.graphql({ query: deletePostMutation, variables: { input: { id } }});
-  } 
+  }
+
+  async function hitLike(idx){
+
+    const post=posts[idx];
+    console.log("const post",post);
+    post.like=post.like+1;
+    delete post.createdAt;
+    delete post.updatedAt;
+    delete post.owner;
+    try{
+        const postData = await API.graphql({query: updatePostMutation, variables: { input: post } });
+        console.log("postData", postData);
+    }catch(err) {
+        console.log("OOPS!");
+        console.log(err);
+    }
+
+  }
+
+
 
   return (
     <>
@@ -78,18 +83,17 @@ const [formData, setFormData] = useState(initialFormState);
         value={formData.post}
       />
       <button onClick={createPost}>Post</button>
-<<<<<<< HEAD
-      
+
       <div>
         {posts.map((post,idx) => {
           return (
-            
+
             <div key={`post${idx}`} >
               <div>
                 <div key={post.id || post.title}>
                   <h2>{post.title}</h2>
                   <p>{post.post}</p>
-                  
+
                   <p>{post.uname}</p>
                   <button onClick={()=> deletePost(post)}>
                       Del
@@ -101,12 +105,10 @@ const [formData, setFormData] = useState(initialFormState);
                 </div>
               </div>
             </div>
-           
+
           );
         })}
       </div>
-     
-=======
       <div style={{marginBottom: 30}}>
         {
           posts.map(post => (
@@ -118,8 +120,6 @@ const [formData, setFormData] = useState(initialFormState);
           ))
         }
       </div>
-      
->>>>>>> parent of 2035790...  Created Post app, where owner can like their posts
     </>
   );
 };
