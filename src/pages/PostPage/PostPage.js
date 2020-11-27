@@ -5,9 +5,10 @@ import { API, Auth } from 'aws-amplify';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listPosts } from '../../graphql/queries';
 import { createPost as createPostMutation, deletePost as deletePostMutation, updatePost as updatePostMutation } from '../../graphql/mutations';
-import { Container } from 'react-bootstrap';
-
-
+import { Container ,Form, Button, Row, Col} from 'react-bootstrap';
+import {BiBulb} from "react-icons/bi";
+import { IoMdTrash, IoIosHeart } from "react-icons/io";
+import './PostPage.css';
 const initialFormState = { title: '', post : '', uname: '', like: 0}
 const PostPage = (props) => {
   const [posts, setPosts] = useState([]);
@@ -21,14 +22,15 @@ const PostPage = (props) => {
   async function getEmail(){
     console.log("Getting email...");
     Auth.currentUserInfo()
-        .then((res) => {
-            setUserEmail(res.attributes.email);
-
-            console.log("Email is: " + res.attributes.email + "!");
-        })
-        .catch((err) => {
-            console.error(err);
-        });
+      .then((res) => {
+        setUserEmail(res.attributes.email);
+       console.log("Email is: " + res.attributes.email);
+       console.log("email is :", userEmail);
+       setFormData({...formData, uname: res.attributes.email, like:0});
+      })
+      .catch((err) => {
+        console.error(err);
+      });
 
   }
 
@@ -68,60 +70,64 @@ const PostPage = (props) => {
 
 
 
-  return (
-    <>
-      <WNavBar />
-      <h3>Share the Steps you are taking to make world a better place !</h3>
-      <input
-        onChange={e => setFormData({ ...formData, 'title': e.target.value})}
-        placeholder="Title"
-        value={formData.title}
-      />
-      <input
-        onChange={e => setFormData({ ...formData, 'post': e.target.value})}
-        placeholder="Share the thoughts"
-        value={formData.post}
-      />
-      <button onClick={createPost}>Post</button>
+    return (
+        <>
+            <WNavBar />
+            <h3>Share the Steps you are taking to make world a better place !</h3>
+            <Form>
 
-      <div>
-        {posts.map((post,idx) => {
-          return (
+                <Form.Control type="text" onChange={e => setFormData({ ...formData, 'title': e.target.value })}
+                    placeholder="Enter Title"
+                    value={formData.title} />
+                    <br />
 
-            <div key={`post${idx}`} >
-              <div>
-                <div key={post.id || post.title}>
-                  <h2>{post.title}</h2>
-                  <p>{post.post}</p>
+                <Form.Control type="text"
+                    onChange={e => setFormData({ ...formData, 'post': e.target.value })}
+                    placeholder="Share the thoughts"
+                    value={formData.post} />
 
-                  <p>{post.uname}</p>
-                  <button onClick={()=> deletePost(post)}>
-                      Del
-                  </button>
-                  <button onClick={()=>hitLike(idx)}>
-                  <p>{post.like}</p>
-                  like
-                  </button>
-                </div>
-              </div>
+                <Button variant="primary"  onClick={createPost}>
+                    Post
+                    </Button>
+                
+            </Form>
+            <Container>
+               
+                
+            <div className="container">
+                {posts.map((post, idx) => {
+                    return (
+                        <div>
+                        <div key={`post${idx}`} className='mycard'>
+                            <div>
+                                <div className='row'>
+                                    <div key={post.id || post.title} className='col-lg-6'>
+                                        <h2>{post.title}</h2>
+                                        <p>{post.post}</p>
+
+                                        <p>{post.uname}</p>
+                                        <p>{post.createdAt}</p>
+                                    </div>
+                                    <div className='col-lg-6'>    
+                                        <Button className="btn btn-warning likebutton" onClick={() => hitLike(idx)}>
+                                            <p>{post.like}</p>
+                                            <IoIosHeart />
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        </div>
+                    );
+                })}
             </div>
+            <br/>
+            <br/>
+            </Container>
 
-          );
-        })}
-      </div>
-      <div style={{marginBottom: 30}}>
-        {
-          posts.map(post => (
-            <div key={post.id || post.uname}>
-              <h2>{post.title}</h2>
-              <p>{post.post}</p>
-              <button onClick={() => deletePost(post)}>Delete post</button>
-            </div>
-          ))
-        }
-      </div>
-    </>
-  );
+        </>
+    );
 };
 export default PostPage;
 
@@ -137,4 +143,31 @@ export default PostPage;
           ))
         }
       </div>
+
+        <input type="text"
+                  onChange={e => setFormData({ ...formData, 'title': e.target.value })}
+                  placeholder="Title"
+                  value={formData.title}
+              />
+               <input type="text"
+                  onChange={e => setFormData({ ...formData, 'post': e.target.value })}
+                  placeholder="Share the thoughts"
+                  value={formData.post}
+              />
+
+              <div style={{marginBottom: 30}}>
+        {
+          posts.map(post => (
+            <div key={post.id || post.uname}>
+              <h2>{post.title}</h2>
+              <p>{post.post}</p>
+              <button onClick={() => deletePost(post)}>Delete post</button>
+            </div>
+          ))
+        }
+      </div>
+
+      <Button className="btn btn-warning" onClick={() => deletePost(post)}>
+                                        <IoMdTrash />
+                                    </Button>
 */

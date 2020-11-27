@@ -48,7 +48,8 @@ const StaticPage = props => {
 
                             </ListGroup>
                             <Card.Body>
-
+                            <a href="https://twitter.com/intent/tweet?button_hashtag=RenewableEnergy&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #RenewableEnergy</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            
                                 <Card.Link href="https://www.epa.gov/statelocalenergy/local-renewable-energy-benefits-and-resources#:~:text=Environmental%20and%20economic%20benefits%20of,reducing%20dependence%20on%20imported%20fuels">Read More</Card.Link>
                             </Card.Body>
                         </Card>
@@ -66,6 +67,7 @@ const StaticPage = props => {
                                 <ListGroupItem>Use solar Energy</ListGroupItem>
                             </ListGroup>
                             <Card.Body>
+                                
                                 <Card.Link href="https://www.seia.org/initiatives/about-solar-energy#:~:text=Solar%20power%20is%20energy%20from,solar%20resources%20in%20the%20world.">Read More</Card.Link>
                             </Card.Body>
                         </Card>
@@ -159,7 +161,11 @@ const StaticPage = props => {
         <div> 
        
         </div> 
+
 <br/>
+<br />
+<a class="twitter-timeline" href="https://twitter.com/gcarbonproject?ref_src=twsrc%5Etfw">Tweets by gcarbonproject</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a class="twitter-timeline" href="https://twitter.com/SavePlanetEart4?ref_src=twsrc%5Etfw">Save Earth</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <div>
 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 <div class="elfsight-app-0d1cd714-8c4e-493e-9ff4-cf2e9f022f3e"></div>
