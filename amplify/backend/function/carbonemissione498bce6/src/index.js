@@ -1,9 +1,15 @@
-//import { food } from 'carbon-footprint'
-food = require('carbon-footprint')
+/* Amplify Params - DO NOT EDIT
+	API_CARBONEMISSIONCALCI_GRAPHQLAPIENDPOINTOUTPUT
+	API_CARBONEMISSIONCALCI_GRAPHQLAPIIDOUTPUT
+	AUTH_CARBONEMISSION056D6878_USERPOOLID
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT *///import { food } from 'carbon-footprint'
+const food = require('carbon-footprint')
 
 exports.handler = async (event, context, callback) => {
     // TODO implement
-    console.log(event)
+    console.log(event);
     /* Unit: kgCO2eq*/
     emissionquantity_dict = {
 
@@ -44,9 +50,9 @@ exports.handler = async (event, context, callback) => {
         lentils: 0.9,
         coffee: 3.14,
         chocolate: 4.87
-    }
-    key = event.currentIntent.slots.items;
-    value = parseFloat(event.currentIntent.slots.quantity);
+    };
+    const key = event.currentIntent.slots.items;
+    const value = parseFloat(event.currentIntent.slots.quantity);
     let score = 0;
 
     if (event.sessionAttributes === null) {
@@ -77,7 +83,7 @@ exports.handler = async (event, context, callback) => {
                 content: `Your total carbon emission is ${score} kgCO2 equivalent`
             }
         }
-    }
+    };
     const response1 = {
         statusCode: 200,
 

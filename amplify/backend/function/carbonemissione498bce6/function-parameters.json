@@ -1,3 +1,21 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "permissions": {
+    "auth": {
+      "carbonemission056d6878": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "api": {
+      "carbonemissioncalci": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }
