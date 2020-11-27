@@ -73,24 +73,33 @@ const PostPage = (props) => {
     return (
         <>
             <WNavBar />
-            <h3>Share the Steps you are taking to make world a better place !</h3>
-            <Form>
-
-                <Form.Control type="text" onChange={e => setFormData({ ...formData, 'title': e.target.value })}
-                    placeholder="Enter Title"
-                    value={formData.title} />
-                    <br />
-
-                <Form.Control type="text"
-                    onChange={e => setFormData({ ...formData, 'post': e.target.value })}
-                    placeholder="Share the thoughts"
-                    value={formData.post} />
-
-                <Button variant="primary"  onClick={createPost}>
-                    Post
-                    </Button>
+            <center><h3>Share the Steps you are taking to make world a better place !</h3></center>
+            <Container>
                 
-            </Form>
+                    <Form>
+                        <Row>
+                            <Col>    
+                                <Form.Control type="text" onChange={e => setFormData({ ...formData, 'title': e.target.value })}
+                                    placeholder="Enter Title"
+                                    value={formData.title} />
+                                    <br />
+
+                                <Form.Control type="text"
+                                    onChange={e => setFormData({ ...formData, 'post': e.target.value })}
+                                    placeholder="Share the thoughts"
+                                    value={formData.post} />
+                            </Col>    
+                            <Col xs lg="2">
+                                <Button variant="primary"  onClick={createPost}>
+                                    Post
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Form>
+                
+            </Container>
+            <br/>
+            <hr/>
             <Container>
                
                 
@@ -105,7 +114,7 @@ const PostPage = (props) => {
                                         <h2>{post.title}</h2>
                                         <p>{post.post}</p>
 
-                                        <p>{post.uname}</p>
+                                        <p>Posted by : {post.uname}</p>
                                         <p>{post.createdAt}</p>
                                     </div>
                                     <div className='col-lg-6'>    
