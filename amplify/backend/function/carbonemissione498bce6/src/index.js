@@ -5,13 +5,47 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT *///import { food } from 'carbon-footprint'
+<<<<<<< HEAD
 const food = require('carbon-footprint')
 
 exports.handler = async (event, context, callback) => {
     // TODO implement
     console.log(event);
+=======
+const food = require('carbon-footprint');
+const axios = require('axios');
+const gql = require('graphql-tag');
+const graphql = require('graphql');
+const { print } = graphql;
+
+const createSpendings = /* GraphQL */ gql`
+  mutation CreateSpendings(
+    $input: CreateSpendingsInput!
+    $condition: ModelSpendingsConditionInput
+  ) {
+    createSpendings(input: $input, condition: $condition) {
+      id
+      title
+      quantity
+      emission
+      period
+      metadata {
+        category
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+
+exports.handler = async (event, context, callback) => {
+    // TODO implement
+    //console.log(event);
+    console.log(process.env.ENV)
+>>>>>>> a121edcb1aa6b239b05965324ea8f1dd712c068d
     /* Unit: kgCO2eq*/
-    emissionquantity_dict = {
+    let emissionquantity_dict = {
 
 
         smartphone: 80,
@@ -72,6 +106,30 @@ exports.handler = async (event, context, callback) => {
             }
         }
     }
+      try {
+    const graphqlData = await axios({
+      url: process.env.API_CARBONEMISSIONCALCI_GRAPHQLAPIENDPOINTOUTPUT,
+      method: 'post',
+      headers: {
+        'x-api-key': process.env.API_CARBONEMISSIONCALCI_GRAPHQLAPIIDOUTPUT
+      },
+      data: {
+        query: print(createSpendings),
+        variables: {
+          input: {
+            title: "Hello world!",
+            quantity: 5,
+            emission: 7,
+            period: "2020-11-01Z"
+          }
+        }
+      }
+    });
+
+    console.log("successfully created item")
+  } catch (err) {
+    console.log('error creating todo: ', err);
+  }
 
     let response = {
         sessionAttributes: null,

@@ -39,6 +39,7 @@ const SettingsPage = props => {
     Auth.currentAuthenticatedUser()
     .then(user => {
         setUser(user)
+        console.log(user)
         if (user.attributes["custom:nickname"])
           setUserName(user.attributes["custom:nickname"])
     })
@@ -138,27 +139,27 @@ const SettingsPage = props => {
       </Form.Group>
       <Form.Group controlId="choose-month">
         <Form.Label>Month:</Form.Label>
-        <Form.Control as="select" onChange={(event) => {setPeriod({...period, month: event.target.value})}} placeholder={today.month}>
-          <option value="01" selected={1 === period.month}>Jan</option>
-          <option value="02" selected={2 === period.month}>Feb</option>
-          <option value="03" selected={3 === period.month}>March</option>
-          <option value="04" selected={4 === period.month}>April</option>
-          <option value="05" selected={5 === period.month}>May</option>
-          <option value="06" selected={6 === period.month}>June</option>
-          <option value="07" selected={7 === period.month}>July</option>
-          <option value="08" selected={8 === period.month}>August</option>
-          <option value="09" selected={9 === period.month}>September</option>
-          <option value="10" selected={10 === period.month}>October</option>
-          <option value="11" selected={11 === period.month}>November</option>
-          <option value="12" selected={12 === period.month}>December</option>
+        <Form.Control as="select" onChange={(event) => {setPeriod({...period, month: event.target.value})}} value={period.month}>
+          <option value="01">Jan</option>
+          <option value="02">Feb</option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="08">August</option>
+          <option value="09">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
         </Form.Control>
       </Form.Group>
       <Form.Group controlId="choose-month">
     <Form.Label>Year:</Form.Label>
-        <Form.Control as="select" onChange={(event) => {setPeriod({...period, year: event.target.value})}} >
-          <option value="2021" selected={2021 === period.year}>2021</option>
-          <option value="2020" selected={2020 === period.year}>2020</option>
-          <option value="2019" selected={2019 === period.year}>2019</option>
+        <Form.Control as="select" onChange={(event) => {setPeriod({...period, year: event.target.value})}} value={period.year}>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
         </Form.Control>
       </Form.Group>
           <Button variant="secondary" type="submit">Update</Button>
