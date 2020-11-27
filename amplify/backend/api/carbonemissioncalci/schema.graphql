@@ -5,14 +5,17 @@ type Balance @model @auth(rules: [{ allow: owner }])
   period: AWSDate!
   cbudget: Int
   cspendings: Int
+  user_id: String!
 }
 
-type Spendings @model @auth(rules: [{ allow: owner, operations: [read, delete, update] }]) {
+type Spendings @model @auth(rules: [{ allow: owner, operations: [delete, update] }]) {
   id: ID!
   title: String!
   quantity: Int
   emission: Int
   period: AWSDate!
+  user_id: String!
+  category: String!
 }
 
 type Post @model @auth(rules: [{ allow: owner, operations: [create, delete] }]) {

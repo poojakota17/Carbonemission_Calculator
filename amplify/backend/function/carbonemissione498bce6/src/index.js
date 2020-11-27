@@ -86,7 +86,7 @@ var params = {
             "title": "Hello world!",
             "quantity": 5,
             "emission": 7,
-            "period": `${today.getFullYear()}-${today.getMonth()}-01Z`
+            "period": `${today.getFullYear()}-${today.getMonth() + 1}-01Z`
     }
 };
 
