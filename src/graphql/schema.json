@@ -33,11 +33,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-<<<<<<< HEAD
             "name" : "Balance",
-=======
-            "name" : "User",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -50,11 +46,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
               "name" : "ModelBalanceFilterInput",
-=======
-              "name" : "ModelUserFilterInput",
->>>>>>> 09fdf6b... added static page
               "ofType" : null
             },
             "defaultValue" : null
@@ -79,7 +71,6 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-<<<<<<< HEAD
             "name" : "ModelBalanceConnection",
             "ofType" : null
           },
@@ -326,9 +317,6 @@
           "type" : {
             "kind" : "OBJECT",
             "name" : "ModelBalanceConnection",
-=======
-            "name" : "ModelUserConnection",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -340,11 +328,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-<<<<<<< HEAD
         "name" : "Balance",
-=======
-        "name" : "User",
->>>>>>> 09fdf6b... added static page
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -381,21 +365,6 @@
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "budget",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
             "kind" : "SCALAR",
             "name" : "Int",
             "ofType" : null
@@ -403,33 +372,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-<<<<<<< HEAD
           "name" : "cspendings",
-=======
-          "name" : "category",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "quantity",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "cevalue",
->>>>>>> 09fdf6b... added static page
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -1179,8 +1122,6 @@
           "deprecationReason" : null
         }, {
           "name" : "quantity",
-<<<<<<< HEAD
-=======
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -1192,7 +1133,6 @@
           "deprecationReason" : null
         }, {
           "name" : "emission",
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -1203,20 +1143,6 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-<<<<<<< HEAD
-          "name" : "emission",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-=======
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
           "name" : "period",
           "description" : null,
           "args" : [ ],
@@ -1228,17 +1154,6 @@
               "name" : "AWSDate",
               "ofType" : null
             }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "metadata",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "MetaData",
-            "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -1287,45 +1202,6 @@
         "inputFields" : null,
         "interfaces" : [ ],
         "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "OBJECT",
-        "name" : "MetaData",
-        "description" : null,
-        "fields" : [ {
-          "name" : "category",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "Category",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "ENUM",
-        "name" : "Category",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : null,
-        "interfaces" : null,
-        "enumValues" : [ {
-          "name" : "food",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "products",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
@@ -1454,8 +1330,6 @@
       }, {
         "kind" : "OBJECT",
         "name" : "Post",
-<<<<<<< HEAD
-=======
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1644,452 +1518,6 @@
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelIntInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "and",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelPostFilterInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "or",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelPostFilterInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "not",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelPostFilterInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "ENUM",
-        "name" : "ModelSortDirection",
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
-        "description" : null,
-        "fields" : [ {
-          "name" : "id",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-<<<<<<< HEAD
-          "name" : "uname",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-=======
-          "name" : "DESC",
-          "description" : null,
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelIDKeyConditionInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "le",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "lt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "ge",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "gt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "between",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "beginsWith",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "OBJECT",
-        "name" : "Mutation",
-        "description" : null,
-        "fields" : [ {
-          "name" : "createBalance",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "CreateBalanceInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelBalanceConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "Balance",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "updateBalance",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "UpdateBalanceInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelBalanceConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "Balance",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "deleteBalance",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "DeleteBalanceInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelBalanceConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "Balance",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "createSpendings",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "CreateSpendingsInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpendingsConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "Spendings",
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-<<<<<<< HEAD
-          "name" : "post",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-=======
-          "name" : "updateSpendings",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "UpdateSpendingsInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpendingsConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "Spendings",
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-<<<<<<< HEAD
-          "name" : "createdAt",
-=======
-          "name" : "deleteSpendings",
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "updatedAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "owner",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "OBJECT",
-        "name" : "ModelPostConnection",
-        "description" : null,
-        "fields" : [ {
-          "name" : "items",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "Post",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "nextToken",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelPostFilterInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelIDInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "uname",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "post",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2534,13 +1962,8 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
-<<<<<<< HEAD
         "kind" : "INPUT_OBJECT",
         "name" : "CreateBalanceInput",
-=======
-        "kind" : "OBJECT",
-        "name" : "ModelUserConnection",
->>>>>>> 09fdf6b... added static page
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2559,13 +1982,8 @@
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
-<<<<<<< HEAD
               "kind" : "SCALAR",
               "name" : "AWSDate",
-=======
-              "kind" : "OBJECT",
-              "name" : "User",
->>>>>>> 09fdf6b... added static page
               "ofType" : null
             }
           },
@@ -2594,11 +2012,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
         "name" : "ModelBalanceConditionInput",
-=======
-        "name" : "ModelUserFilterInput",
->>>>>>> 09fdf6b... added static page
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -2629,33 +2043,6 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "quantity",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "cevalue",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -2663,11 +2050,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
               "name" : "ModelBalanceConditionInput",
-=======
-              "name" : "ModelUserFilterInput",
->>>>>>> 09fdf6b... added static page
               "ofType" : null
             }
           },
@@ -2680,11 +2063,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
               "name" : "ModelBalanceConditionInput",
-=======
-              "name" : "ModelUserFilterInput",
->>>>>>> 09fdf6b... added static page
               "ofType" : null
             }
           },
@@ -2694,11 +2073,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
             "name" : "ModelBalanceConditionInput",
-=======
-            "name" : "ModelUserFilterInput",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "defaultValue" : null
@@ -2802,8 +2177,6 @@
           "defaultValue" : null
         }, {
           "name" : "quantity",
-<<<<<<< HEAD
-=======
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2813,7 +2186,6 @@
           "defaultValue" : null
         }, {
           "name" : "emission",
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2822,18 +2194,6 @@
           },
           "defaultValue" : null
         }, {
-<<<<<<< HEAD
-          "name" : "emission",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-=======
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
           "name" : "period",
           "description" : null,
           "type" : {
@@ -2844,33 +2204,6 @@
               "name" : "AWSDate",
               "ofType" : null
             }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "metadata",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "MetaDataInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "MetaDataInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "Category",
-            "ofType" : null
           },
           "defaultValue" : null
         } ],
@@ -2986,8 +2319,6 @@
           "defaultValue" : null
         }, {
           "name" : "quantity",
-<<<<<<< HEAD
-=======
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2997,7 +2328,6 @@
           "defaultValue" : null
         }, {
           "name" : "emission",
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3006,32 +2336,11 @@
           },
           "defaultValue" : null
         }, {
-<<<<<<< HEAD
-          "name" : "emission",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-=======
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
           "name" : "period",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
             "name" : "AWSDate",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "metadata",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "MetaDataInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3043,7 +2352,6 @@
         "kind" : "INPUT_OBJECT",
         "name" : "DeleteSpendingsInput",
         "description" : null,
-<<<<<<< HEAD
         "fields" : null,
         "inputFields" : [ {
           "name" : "id",
@@ -3051,103 +2359,6 @@
           "type" : {
             "kind" : "SCALAR",
             "name" : "ID",
-=======
-        "fields" : [ {
-          "name" : "createUser",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "CreateUserInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "User",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "updateUser",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "UpdateUserInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "User",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "deleteUser",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "DeleteUserInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelUserConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "User",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "defaultValue" : null
@@ -3182,48 +2393,13 @@
           "name" : "post",
           "description" : null,
           "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "budget",
-          "description" : null,
-          "type" : {
             "kind" : "SCALAR",
             "name" : "String",
             "ofType" : null
           },
           "defaultValue" : null
         }, {
-<<<<<<< HEAD
           "name" : "uname",
-=======
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "quantity",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "cevalue",
->>>>>>> 09fdf6b... added static page
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -3246,11 +2422,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
         "name" : "ModelPostConditionInput",
-=======
-        "name" : "ModelUserConditionInput",
->>>>>>> 09fdf6b... added static page
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -3281,37 +2453,11 @@
           },
           "defaultValue" : null
         }, {
-<<<<<<< HEAD
           "name" : "like",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelIntInput",
-=======
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "quantity",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "cevalue",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "defaultValue" : null
@@ -3323,11 +2469,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
               "name" : "ModelPostConditionInput",
-=======
-              "name" : "ModelUserConditionInput",
->>>>>>> 09fdf6b... added static page
               "ofType" : null
             }
           },
@@ -3340,11 +2482,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
               "name" : "ModelPostConditionInput",
-=======
-              "name" : "ModelUserConditionInput",
->>>>>>> 09fdf6b... added static page
               "ofType" : null
             }
           },
@@ -3354,11 +2492,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-<<<<<<< HEAD
             "name" : "ModelPostConditionInput",
-=======
-            "name" : "ModelUserConditionInput",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "defaultValue" : null
@@ -3420,33 +2554,6 @@
             "ofType" : null
           },
           "defaultValue" : null
-        }, {
-          "name" : "category",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "quantity",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "cevalue",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
         } ],
         "interfaces" : null,
         "enumValues" : null,
@@ -3492,11 +2599,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-<<<<<<< HEAD
             "name" : "Balance",
-=======
-            "name" : "User",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3520,11 +2623,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-<<<<<<< HEAD
             "name" : "Balance",
-=======
-            "name" : "User",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3548,11 +2647,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-<<<<<<< HEAD
             "name" : "Balance",
-=======
-            "name" : "User",
->>>>>>> 09fdf6b... added static page
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -4599,23 +3694,6 @@
         "onFragment" : false,
         "onField" : true
       }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
         "name" : "aws_oidc",
         "description" : "Tells the service this field/object has access authorized by an OIDC token.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
@@ -4698,6 +3776,23 @@
             }
           },
           "defaultValue" : null
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
         } ],
         "onOperation" : false,
         "onFragment" : false,

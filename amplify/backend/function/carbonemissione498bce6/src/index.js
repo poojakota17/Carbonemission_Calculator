@@ -4,46 +4,19 @@
 	AUTH_CARBONEMISSION056D6878_USERPOOLID
 	ENV
 	REGION
+  SPENDINGS_TABLE
 Amplify Params - DO NOT EDIT *///import { food } from 'carbon-footprint'
-<<<<<<< HEAD
-const food = require('carbon-footprint')
+
+var AWS = require('aws-sdk'),
+    food = require('carbon-footprint'),
+    uuid = require('uuid'),
+    docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
+
+AWS.config.update({region: process.env.REGION});
 
 exports.handler = async (event, context, callback) => {
-    // TODO implement
-    console.log(event);
-=======
-const food = require('carbon-footprint');
-const axios = require('axios');
-const gql = require('graphql-tag');
-const graphql = require('graphql');
-const { print } = graphql;
-
-const createSpendings = /* GraphQL */ gql`
-  mutation CreateSpendings(
-    $input: CreateSpendingsInput!
-    $condition: ModelSpendingsConditionInput
-  ) {
-    createSpendings(input: $input, condition: $condition) {
-      id
-      title
-      quantity
-      emission
-      period
-      metadata {
-        category
-      }
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-
-exports.handler = async (event, context, callback) => {
-    // TODO implement
+    const today = new Date();
     //console.log(event);
-    console.log(process.env.ENV)
->>>>>>> a121edcb1aa6b239b05965324ea8f1dd712c068d
     /* Unit: kgCO2eq*/
     let emissionquantity_dict = {
 
@@ -94,7 +67,6 @@ exports.handler = async (event, context, callback) => {
         score = emissionquantity_dict[key] * value;
     } else {
         let list = event.sessionAttributes;
-        //console.log(list);
 
         for (var p in list) {
             if (list.hasOwnProperty(p)) {
@@ -106,31 +78,25 @@ exports.handler = async (event, context, callback) => {
             }
         }
     }
-      try {
-    const graphqlData = await axios({
-      url: process.env.API_CARBONEMISSIONCALCI_GRAPHQLAPIENDPOINTOUTPUT,
-      method: 'post',
-      headers: {
-        'x-api-key': process.env.API_CARBONEMISSIONCALCI_GRAPHQLAPIIDOUTPUT
-      },
-      data: {
-        query: print(createSpendings),
-        variables: {
-          input: {
-            title: "Hello world!",
-            quantity: 5,
-            emission: 7,
-            period: "2020-11-01Z"
-          }
-        }
-      }
-    });
 
-    console.log("successfully created item")
-  } catch (err) {
-    console.log('error creating todo: ', err);
+var params = {
+    TableName: process.env.SPENDINGS_TABLE,
+    Item: {
+            "id": uuid.v1(),
+            "title": "Hello world!",
+            "quantity": 5,
+            "emission": 7,
+            "period": `${today.getFullYear()}-${today.getMonth()}-01Z`
+    }
+};
+
+docClient.put(params, function(err, data) {
+  if (err) {
+    console.log("Error", err);
+  } else {
+    console.log("Success", data.Item);
   }
-
+});
     let response = {
         sessionAttributes: null,
         dialogAction: {

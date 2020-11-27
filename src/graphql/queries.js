@@ -5,31 +5,27 @@ export const getBalance = /* GraphQL */ `
   query GetBalance($id: ID!) {
     getBalance(id: $id) {
       id
-      username
-      budget
-      category
-      quantity
-      cevalue
+      period
+      cbudget
+      cspendings
       createdAt
       updatedAt
       owner
     }
   }
 `;
-export const listUsers = /* GraphQL */ `
-  query ListUsers(
-    $filter: ModelUserFilterInput
+export const listBalances = /* GraphQL */ `
+  query ListBalances(
+    $filter: ModelBalanceFilterInput
     $limit: Int
     $nextToken: String
   ) {
     listBalances(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        username
-        budget
-        category
-        quantity
-        cevalue
+        period
+        cbudget
+        cspendings
         createdAt
         updatedAt
         owner
@@ -46,9 +42,6 @@ export const getSpendings = /* GraphQL */ `
       quantity
       emission
       period
-      metadata {
-        category
-      }
       createdAt
       updatedAt
       owner
@@ -68,9 +61,6 @@ export const listSpendingss = /* GraphQL */ `
         quantity
         emission
         period
-        metadata {
-          category
-        }
         createdAt
         updatedAt
         owner
@@ -89,14 +79,7 @@ export const getPost = /* GraphQL */ `
       like
       createdAt
       updatedAt
-<<<<<<< HEAD
       owner
-=======
-<<<<<<< HEAD
-      owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
     }
   }
 `;
@@ -115,14 +98,7 @@ export const listPosts = /* GraphQL */ `
         like
         createdAt
         updatedAt
-<<<<<<< HEAD
         owner
-=======
-<<<<<<< HEAD
-        owner
-=======
->>>>>>> 5d62cbacf78d84d1ea21f9cb4632aadbcafa4a01
->>>>>>> 09ab138f0789e2b71e06326579d120a075982119
       }
       nextToken
     }

@@ -7,21 +7,15 @@ type Balance @model @auth(rules: [{ allow: owner }])
   cspendings: Int
 }
 
-type Spendings @model @auth(rules: [{ allow: owner }]) {
+type Spendings @model @auth(rules: [{ allow: owner, operations: [read, delete, update] }]) {
   id: ID!
   title: String!
   quantity: Int
   emission: Int
   period: AWSDate!
-  metadata: MetaData
 }
 
-type MetaData {
- category: Category
-}
-enum Category { food products }
-
-type Post @model @auth(rules: [{ allow: owner, operations: [create, delete, update,read] }]) {
+type Post @model @auth(rules: [{ allow: owner, operations: [create, delete] }]) {
 id: ID!
 title: String
 post: String
