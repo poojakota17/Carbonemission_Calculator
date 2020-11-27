@@ -21,6 +21,16 @@ Parameters:
   
   
   
+  functioncarbonemission056d6878PostConfirmationArn: 
+    Type: String
+    Default: functioncarbonemission056d6878PostConfirmationArn
+  
+  functioncarbonemission056d6878PostConfirmationName: 
+    Type: String
+    Default: functioncarbonemission056d6878PostConfirmationName
+  
+  
+  
 
     
   identityPoolName:
@@ -161,7 +171,6 @@ Parameters:
   hostedUI:
     Type: String
             
-            
       
   parentStack:
     Type: String
@@ -170,6 +179,7 @@ Parameters:
   permissions:
     Type: CommaDelimitedList
       
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
@@ -229,6 +239,8 @@ Resources:
         
         
         
+          PostConfirmation: !Ref functioncarbonemission056d6878PostConfirmationArn
+        
         
         
           PreSignUp: !Ref functioncarbonemission056d6878PreSignupArn
@@ -264,6 +276,15 @@ Resources:
     
   
     
+  
+  UserPoolPostConfirmationLambdaInvokePermission: 
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties: 
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functioncarbonemission056d6878PostConfirmationName
+      SourceArn: !GetAtt UserPool.Arn
     
   
   

@@ -16,7 +16,8 @@
         "carbonemission056d6878": {}
       },
       "function": {
-        "carbonemission056d6878PreSignup": {}
+        "carbonemission056d6878PreSignup": {},
+        "carbonemission056d6878PostConfirmation": {}
       }
     }
   }
