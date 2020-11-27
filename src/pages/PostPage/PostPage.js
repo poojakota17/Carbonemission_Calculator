@@ -73,7 +73,8 @@ const PostPage = (props) => {
     return (
         <>
             <WNavBar />
-            <center><h3>Share the Steps you are taking to make world a better place !</h3></center>
+            <center><h3>Share the Steps you are taking to make the world a better place !</h3></center>
+            <br/>
             <Container>
                 
                     <Form>
@@ -107,26 +108,29 @@ const PostPage = (props) => {
                 {posts.map((post, idx) => {
                     return (
                         <div>
-                        <div key={`post${idx}`} className='mycard'>
-                            <div>
-                                <div className='row'>
-                                    <div key={post.id || post.title} className='col-lg-6'>
-                                        <h2>{post.title}</h2>
-                                        <p>{post.post}</p>
+                            <div key={`post${idx}`}>
+                                <fieldset  className='mycard'>
+                                    <legend className='postTitle'><h2>{post.title}</h2></legend>
+                                    <div>
+                                        <div className='row'>
+                                            <div key={post.id || post.title} className='col-lg-6'>
+                                                
+                                                <p>{post.post}</p>
 
-                                        <p>Posted by : {post.uname}</p>
-                                        <p>{post.createdAt}</p>
+                                                <p>Posted by : {post.uname}</p>
+                                                <p>{post.createdAt}</p>
+                                            </div>
+                                            <div className='col-lg-6'>    
+                                                <Button className="btn btn-warning likebutton" onClick={() => hitLike(idx)}>
+                                                    <p>{post.like}</p>
+                                                    <IoIosHeart />
+                                                </Button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='col-lg-6'>    
-                                        <Button className="btn btn-warning likebutton" onClick={() => hitLike(idx)}>
-                                            <p>{post.like}</p>
-                                            <IoIosHeart />
-                                        </Button>
-                                    </div>
-                                </div>
+                                </fieldset>
                             </div>
-                        </div>
-                        <br/>
+                            <br/>
                         </div>
                     );
                 })}

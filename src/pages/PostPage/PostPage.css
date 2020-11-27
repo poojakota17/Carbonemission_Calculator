@@ -4,16 +4,29 @@
     border-color: rgb(31, 195, 9);
     border-radius: 2cm;
     padding: 1cm;
-    transition: filter 1.5s;
+    margin-top: 1cm;
+    margin-bottom: 0.25cm;
+    transition: filter 1s, border-width 1s;
 }
-
+legend.postTitle {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
 .mycard:hover {
-    filter: drop-shadow(15px 15px 10px rgb(31, 195, 9))
+    filter: drop-shadow(1.5cm 1.5cm 0.5cm rgb(31, 195, 9));
+    border-width: 1px;
 }
 
 .likebutton {
     float: right;
     height: 3cm;
     width: 1cm;
+    vertical-align: text-bottom;
+    transition: color 1s background-color 1s;
+}
+.likebutton:hover {
+    color: white;
+    background-color: rgb(31, 195, 9);
 }
   
