@@ -315,7 +315,81 @@
                   "Fn::Join": [
                     "",
                     [
-                      "arn:aws:dynamodb:*:*:table/Spendings-bknz2hyvhzaljjpviiljqqsxae-",
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/Spendings-bknz2hyvhzaljjpviiljqqsxae-",
+                      {
+                        "Ref": "env"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "GetId",
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/IdentityMap-bknz2hyvhzaljjpviiljqqsxae-",
+                      {
+                        "Ref": "env"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Sid": "UpdateSpendings",
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/Balance-bknz2hyvhzaljjpviiljqqsxae-",
                       {
                         "Ref": "env"
                       }
