@@ -1,54 +1,34 @@
 import React from 'react';
-import { AmplifySignOut } from '@aws-amplify/ui-react';
 import { Interactions } from 'aws-amplify';
 import { AmplifyChatbot } from "@aws-amplify/ui-react";
 import { ReactComponent as Logo} from '../../logo.svg';
 import  { useState, useEffect } from 'react';
-import { listIdentityMaps } from '../../graphql/queries';
-import { createIdentityMap } from '../../graphql/mutations';
-import { API, Auth } from 'aws-amplify';
-import {UNavBar} from '../../components/UNavBar'
+import {UNavBar} from '../../components/UNavBar';
+import Button from 'react-bootstrap/Button';
+import { getIdentity, checkIdentityMap, addIdentityMap, getToday,fetchBalanceInfo } from '../../Utils.js';
 
 const MainPage = props => {
   const [identityId, setIdentityId] = useState(null);
   const [mapped, setMapped] = useState(false);
+  const [period, setPeriod] = useState({});
+  const [currentBudget, setCurrentBudget] = useState(0);
+  const [currentSpendings, setCurrentSpendings] = useState(0);
 
   useEffect(() => {
-    getIdentity();
-    checkIdentityMap();
-    console.log(identityId)
+    getToday(setPeriod);
+    getIdentity(setIdentityId);
+    checkIdentityMap(setMapped);
     if (!mapped && identityId)
-      addIdentityMap(identityId);
+      addIdentityMap(identityId, setMapped);
   }, [identityId]);
 
-  async function getIdentity() {
-    try {
-      const info = await Auth.currentCredentials()
-      setIdentityId(info.identityId)
-    } catch(e) {
-      console.log(e);
-    }
-  }
+  useEffect(() => {
+    if (period.year)
+      fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
+  },[period])
 
-  async function addIdentityMap(id) {
-    try {
-      await API.graphql({ query: createIdentityMap, variables: { input: {'pool_id' : id} } })
-      setMapped(true);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  async function checkIdentityMap() {
-    try {
-      const {data: {listIdentityMaps: {items}} } = await API.graphql({ query: listIdentityMaps });
-      if (items.length > 0)
-        setMapped(true);
-    }
-    catch(e) {
-      console.log(e);
-      return null;
-    }
+  const refreshBalance = () => {
+    fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
   }
 
     return (
@@ -61,6 +41,9 @@ const MainPage = props => {
             welcomeMessage="Hello, how can I help you?"
             textEnabled="true" />
         </header>
+        <Button onClick={refreshBalance}>Refresh</Button>
+        <div> Current Balance is: {currentBudget}</div>
+        <div> Current Spendings is: {currentSpendings}</div>
       </div>
     );
 };
