@@ -4,14 +4,52 @@ import { Interactions } from 'aws-amplify';
 import { AmplifyChatbot } from "@aws-amplify/ui-react";
 import { ReactComponent as Logo} from '../../logo.svg';
 import  { useState, useEffect } from 'react';
+import { listIdentityMaps } from '../../graphql/queries';
+import { createIdentityMap } from '../../graphql/mutations';
 import { API, Auth } from 'aws-amplify';
 import {UNavBar} from '../../components/UNavBar'
 
 const MainPage = props => {
+  const [identityId, setIdentityId] = useState(null);
+  const [mapped, setMapped] = useState(false);
 
   useEffect(() => {
+    getIdentity();
+    checkIdentityMap();
+    console.log(identityId)
+    if (!mapped && identityId)
+      addIdentityMap(identityId);
+  }, [identityId]);
 
-  }, []);
+  async function getIdentity() {
+    try {
+      const info = await Auth.currentCredentials()
+      setIdentityId(info.identityId)
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  async function addIdentityMap(id) {
+    try {
+      await API.graphql({ query: createIdentityMap, variables: { input: {'pool_id' : id} } })
+      setMapped(true);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function checkIdentityMap() {
+    try {
+      const {data: {listIdentityMaps: {items}} } = await API.graphql({ query: listIdentityMaps });
+      if (items.length > 0)
+        setMapped(true);
+    }
+    catch(e) {
+      console.log(e);
+      return null;
+    }
+  }
 
     return (
       <div className="App">

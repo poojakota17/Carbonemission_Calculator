@@ -38,10 +38,11 @@ export const getSpendings = /* GraphQL */ `
   query GetSpendings($id: ID!) {
     getSpendings(id: $id) {
       id
-      title
+      item
       quantity
       emission
       period
+      category
       createdAt
       updatedAt
       owner
@@ -57,10 +58,11 @@ export const listSpendingss = /* GraphQL */ `
     listSpendingss(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
+        item
         quantity
         emission
         period
+        category
         createdAt
         updatedAt
         owner
@@ -96,6 +98,35 @@ export const listPosts = /* GraphQL */ `
         post
         uname
         like
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getIdentityMap = /* GraphQL */ `
+  query GetIdentityMap($id: ID!) {
+    getIdentityMap(id: $id) {
+      id
+      pool_id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listIdentityMaps = /* GraphQL */ `
+  query ListIdentityMaps(
+    $filter: ModelIdentityMapFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIdentityMaps(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        pool_id
         createdAt
         updatedAt
         owner
@@ -154,6 +185,70 @@ export const balanceByPeriod = /* GraphQL */ `
         period
         cbudget
         cspendings
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const spendingsByPeriod = /* GraphQL */ `
+  query SpendingsByPeriod(
+    $period: AWSDate
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSpendingsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    spendingsByPeriod(
+      period: $period
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        item
+        quantity
+        emission
+        period
+        category
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const spendingsByCategory = /* GraphQL */ `
+  query SpendingsByCategory(
+    $category: String
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSpendingsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    spendingsByCategory(
+      category: $category
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        item
+        quantity
+        emission
+        period
+        category
         createdAt
         updatedAt
         owner

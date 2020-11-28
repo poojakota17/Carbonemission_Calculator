@@ -41,13 +41,14 @@ export const onDeleteBalance = /* GraphQL */ `
   }
 `;
 export const onCreateSpendings = /* GraphQL */ `
-  subscription OnCreateSpendings($owner: String!) {
-    onCreateSpendings(owner: $owner) {
+  subscription OnCreateSpendings {
+    onCreateSpendings {
       id
-      title
+      item
       quantity
       emission
       period
+      category
       createdAt
       updatedAt
       owner
@@ -55,13 +56,14 @@ export const onCreateSpendings = /* GraphQL */ `
   }
 `;
 export const onUpdateSpendings = /* GraphQL */ `
-  subscription OnUpdateSpendings($owner: String!) {
-    onUpdateSpendings(owner: $owner) {
+  subscription OnUpdateSpendings {
+    onUpdateSpendings {
       id
-      title
+      item
       quantity
       emission
       period
+      category
       createdAt
       updatedAt
       owner
@@ -69,13 +71,14 @@ export const onUpdateSpendings = /* GraphQL */ `
   }
 `;
 export const onDeleteSpendings = /* GraphQL */ `
-  subscription OnDeleteSpendings($owner: String!) {
-    onDeleteSpendings(owner: $owner) {
+  subscription OnDeleteSpendings {
+    onDeleteSpendings {
       id
-      title
+      item
       quantity
       emission
       period
+      category
       createdAt
       updatedAt
       owner
@@ -118,6 +121,39 @@ export const onDeletePost = /* GraphQL */ `
       post
       uname
       like
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateIdentityMap = /* GraphQL */ `
+  subscription OnCreateIdentityMap($owner: String!) {
+    onCreateIdentityMap(owner: $owner) {
+      id
+      pool_id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateIdentityMap = /* GraphQL */ `
+  subscription OnUpdateIdentityMap($owner: String!) {
+    onUpdateIdentityMap(owner: $owner) {
+      id
+      pool_id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteIdentityMap = /* GraphQL */ `
+  subscription OnDeleteIdentityMap($owner: String!) {
+    onDeleteIdentityMap(owner: $owner) {
+      id
+      pool_id
       createdAt
       updatedAt
       owner
