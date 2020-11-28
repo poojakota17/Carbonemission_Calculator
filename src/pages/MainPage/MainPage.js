@@ -11,13 +11,13 @@ import {UNavBar} from '../../components/UNavBar'
 
 const MainPage = props => {
   const [identityId, setIdentityId] = useState(null);
-  const [identity, setIdentity] = useState(false);
+  const [mapped, setMapped] = useState(false);
 
   useEffect(() => {
     getIdentity();
     checkIdentityMap();
     console.log(identityId)
-    if (!identity && identityId)
+    if (!mapped && identityId)
       addIdentityMap(identityId);
   }, [identityId]);
 
@@ -33,6 +33,7 @@ const MainPage = props => {
   async function addIdentityMap(id) {
     try {
       await API.graphql({ query: createIdentityMap, variables: { input: {'pool_id' : id} } })
+      setMapped(true);
     } catch (e) {
       console.log(e);
     }
@@ -41,8 +42,8 @@ const MainPage = props => {
   async function checkIdentityMap() {
     try {
       const {data: {listIdentityMaps: {items}} } = await API.graphql({ query: listIdentityMaps });
-      if (items.length == 0)
-        setIdentity(true);
+      if (items.length > 0)
+        setMapped(true);
     }
     catch(e) {
       console.log(e);
