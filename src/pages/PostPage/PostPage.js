@@ -9,16 +9,27 @@ import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { BiBulb } from "react-icons/bi";
 import { IoMdTrash, IoIosHeart } from "react-icons/io";
 import './PostPage.css';
+import { Doughnut, Line } from 'react-chartjs-2';
+
+
+//const [dataChart, setDataChart] = useState ({}); 
 const initialFormState = { title: '', post: '', uname: '', like: 0 }
 const PostPage = (props) => {
     const [posts, setPosts] = useState([]);
     const [userEmail, setUserEmail] = useState("");
     const [formData, setFormData] = useState(initialFormState);
+    //const datagraph =  API.graphql({ query: listPosts });
+    //console.log("datagraph", datagraph)
+    const [data, setData] = useState({});
 
     useEffect(() => {
         fetchPosts();
         getEmail();
+        getData();
+        
     }, []);
+
+
     async function getEmail() {
         console.log("Getting email...");
         Auth.currentUserInfo()
@@ -26,6 +37,7 @@ const PostPage = (props) => {
                 setUserEmail(res.attributes.email);
                 console.log("Email is: " + res.attributes.email);
                 console.log("email is :", userEmail);
+                console.log("res is ", res)
                 setFormData({ ...formData, uname: res.attributes.email, like: 0 });
             })
             .catch((err) => {
@@ -36,13 +48,18 @@ const PostPage = (props) => {
 
     async function fetchPosts() {
         const apiData = await API.graphql({ query: listPosts });
+
         setPosts(apiData.data.listPosts.items);
+        console.log("fetched Items", apiData.data.listPosts.items);
+        console.log("fetched Items uname    ", apiData.data.listPosts.items);
     }
     async function createPost() {
         if (!formData.title || !formData.post) return;
         await API.graphql({ query: createPostMutation, variables: { input: formData } });
         setPosts([...posts, formData]);
+        
         setFormData(initialFormState);
+        console.log("setFormData",setFormData )
     }
     async function deletePost({ id }) {
         const newPostsArray = posts.filter(post => post.id !== id);
@@ -65,8 +82,48 @@ const PostPage = (props) => {
             console.log("OOPS!");
             console.log(err);
         }
-
     }
+   /*const data={
+      
+
+        labels:['mak','lol'],
+        datasets: [{
+            label: 'likes',
+            data:[datagraph.like]}]
+            
+            
+    } */
+    const getData = async () => {
+        console.log("In getdata")
+        try {
+          const res =  await API.graphql({ query: listPosts });
+          console.log('in get data- value of res',res);
+          console.log("res.data.listPosts.items",res.data.listPosts.items);
+          console.log("res.data.listPosts.items.uname",res.data.listPosts.items.uname);
+
+            const arry = res.data.listPosts.items;
+            console.log(" print arry", arry)
+            console.log(" Print arry uname", arry);
+            console.log(JSON.stringify(arry,null,2));
+            const love =(JSON.stringify(arry,null,2));
+            
+
+
+          setData({
+            labels: [arry.uname],
+            datasets: [
+              {
+                label: "Covid-19",
+        
+                data: (arry.like)
+              }
+            ]
+            
+          });
+        } catch (error) {
+          console.log(error.response);
+        }
+      };
     return (
         <>
             <WNavBar />
@@ -112,7 +169,8 @@ const PostPage = (props) => {
                                                     <p>{post.post}</p>
 
                                                     <p>Posted by : {post.uname}</p>
-                                                    <p>{post.createdAt}</p>
+                                                    
+                                                    <p>{post.createdAt  }</p>
                                                 </div>
                                                 <div className='col-lg-6'>
                                                     <Button className="btn btn-warning likebutton" onClick={() => hitLike(idx)}>
@@ -132,9 +190,13 @@ const PostPage = (props) => {
                 <br />
                 <br />
             </Container>
+            <div>
+<Line data={data} />
+</div>
 
         </>
     );
 };
 export default PostPage;
 
+//   

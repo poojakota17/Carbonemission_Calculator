@@ -37,7 +37,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /*transition: filter 1s;*/
+    transition: filter 1s;
 }
 
 .class1{

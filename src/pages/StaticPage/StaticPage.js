@@ -21,7 +21,7 @@ const StaticPage = props => {
                         <Card className='myCard'>
                             <Card.Body>
                                 <Card.Title>Renewable Energy</Card.Title>
-                                <Card.Img variant="top" src="/images/renewable1.jpg" rounded />
+                                <Card.Img variant="top" src="/images/renewable1.jpg" size="10"  />
                                 <Card.Text>
                                     Using Renewable energies such as wind, hydro power helps reducing carbon footprint as it produce "No Greenhouse Gases".
                                 </Card.Text>

@@ -7,12 +7,16 @@ type Balance @model @auth(rules: [{ allow: owner }])
   cspendings: Int
 }
 
-type Spendings @model @auth(rules: [{ allow: owner, operations: [read, delete, update] }]) {
+type Spendings @model @auth(rules: [{ allow: owner, operations: [delete, update] }])
+ @key(name: "byPeriod", fields: ["period", "id"], queryField: "spendingsByPeriod")
+ @key(name: "byCategory", fields: ["category", "id"], queryField: "spendingsByCategory")
+  {
   id: ID!
-  title: String!
+  item: String!
   quantity: Int
   emission: Int
   period: AWSDate!
+  category: String!
 }
 
 type Post @model @auth(rules: [{ allow: owner, operations: [create, delete] }]) {
@@ -21,4 +25,11 @@ title: String
 post: String
 uname: String
 like: Int
+}
+
+type IdentityMap @model @auth(rules: [{ allow: owner}])
+@key(name: "byPoolId", fields: ["pool_id", "id"])
+{
+  id: ID!
+  pool_id: String!
 }
