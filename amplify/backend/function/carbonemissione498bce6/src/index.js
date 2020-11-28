@@ -6,6 +6,7 @@
 	REGION
   SPENDINGS_TABLE
   IDENTITY_TABLE
+  BALANCE_TABLE
 Amplify Params - DO NOT EDIT *///import { food } from 'carbon-footprint'
 
 var AWS = require('aws-sdk'),
@@ -19,14 +20,10 @@ exports.handler = async (event, context, callback) => {
     const cognitoId = await getOwnerId(event.userId);
     console.log(cognitoId)
     const period = `${today.getFullYear()}-${today.getMonth() + 1}-01Z`;
-   // console.log(event);
-//    console.log(context);
-
+    const currentSpendings = await getSpendings(cognitoId, period);
 
     /* Unit: kgCO2eq*/
     let emissionquantity_dict = {
-
-
         smartphone: [80,"product"],
         tablet: [87,"product"],
         computer: [588,"product"],
@@ -89,7 +86,7 @@ exports.handler = async (event, context, callback) => {
             }
         }
     }
-
+    await updateSpendings(currentSpendings, cognitoId, period, totalScore);
     let response = {
         sessionAttributes: null,
         dialogAction: {
@@ -125,14 +122,17 @@ async function getOwnerId(identId) {
            ":p": identId
       },
       FilterExpression: "#pi = :p",
-      ProjectionExpression: "#o",
-      Limit: 1
+      ProjectionExpression: "#o"
   };
-
+  try {
   const result = await docClient.scan(params).promise();
   if (result.Items.length)
     return result.Items[0].owner;
-  return null;
+    return null;
+  } catch (e) {
+      console.log(e)
+      return null;
+  }
 }
 
 async function addDataToDB(i, q, s, c, o, p) {
@@ -154,9 +154,86 @@ async function addDataToDB(i, q, s, c, o, p) {
                 "period": p
         }
     };
+    try {
+      const result = await docClient.put(params).promise();
+      if (result.Items)
+        return "Success";
+    } catch(e) {
+        console.log(e)
+        return null;
+    }
+}
 
-  const result = await docClient.put(params).promise();
-  if (result.Items)
-    return "Success";
-  return null;
+async function getSpendings(owner, period) {
+    console.log(owner)
+    console.log(period)
+  var params = {
+      TableName: process.env.BALANCE_TABLE,
+      ExpressionAttributeNames: {
+          "#p": "period",
+          "#sp": "cspendings",
+          "#o": "owner",
+          "#id": "id"
+      },
+      ExpressionAttributeValues: {
+           ":o": owner
+      },
+      FilterExpression: "#o = :o",
+      ProjectionExpression: "#id, #o, #sp, #p"
+  };
+
+  try {
+      const result = await docClient.scan(params).promise();
+      const currentBalance = result.Items.filter(record => record.period == period)
+      if (currentBalance.length)
+        return currentBalance[0];
+      return null;
+  } catch(e) {
+      console.log(e)
+      return null;
+  }
+}
+
+async function updateSpendings(currentSpendings, owner, period, newSpendings) {
+    console.log(currentSpendings)
+    console.log(period)
+    console.log(newSpendings)
+    if (currentSpendings != null) {
+        const id = currentSpendings.id;
+        var params = {
+            TableName: process.env.BALANCE_TABLE,
+            Key: { id },
+            UpdateExpression: 'set cspendings = :sp',
+            ExpressionAttributeValues: {
+                   ":sp": currentSpendings.cspendings + newSpendings
+            }
+        };
+        try {
+            const result = await docClient.update(params).promise();
+            return ("Success");
+        } catch(e) {
+            console.log(e);
+            return `Fail: ${e}`;
+        }
+    }
+    else {
+        console.log("need to add new balance")
+        var params = {
+            TableName: balanceTable,
+            Item: {
+                "id": uuid.v1(),
+                "owner": owner,
+                "cbudget": 0,
+                'cspendings': newSpendings,
+                "period": period
+            }
+        }
+        try {
+            await docClient.put(params).promise()
+            return "Success"
+        } catch (e) {
+            console.log(e);
+            return `Fail: ${e}`;
+        }
+    }
 }
