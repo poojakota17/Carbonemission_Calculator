@@ -225,3 +225,35 @@ export const spendingsByPeriod = /* GraphQL */ `
     }
   }
 `;
+export const spendingsByCategory = /* GraphQL */ `
+  query SpendingsByCategory(
+    $category: String
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSpendingsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    spendingsByCategory(
+      category: $category
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        item
+        quantity
+        emission
+        period
+        category
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

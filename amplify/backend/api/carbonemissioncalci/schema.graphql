@@ -8,7 +8,9 @@ type Balance @model @auth(rules: [{ allow: owner }])
 }
 
 type Spendings @model @auth(rules: [{ allow: owner, operations: [delete, update] }])
- @key(name: "byPeriod", fields: ["period", "id"], queryField: "spendingsByPeriod") {
+ @key(name: "byPeriod", fields: ["period", "id"], queryField: "spendingsByPeriod")
+ @key(name: "byCategory", fields: ["category", "id"], queryField: "spendingsByCategory")
+  {
   id: ID!
   item: String!
   quantity: Int
