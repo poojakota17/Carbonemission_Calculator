@@ -8,6 +8,7 @@ export const getBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
+      user_id
       createdAt
       updatedAt
       owner
@@ -26,6 +27,7 @@ export const listBalances = /* GraphQL */ `
         period
         cbudget
         cspendings
+        user_id
         createdAt
         updatedAt
         owner
@@ -42,6 +44,8 @@ export const getSpendings = /* GraphQL */ `
       quantity
       emission
       period
+      user_id
+      category
       createdAt
       updatedAt
       owner
@@ -61,6 +65,8 @@ export const listSpendingss = /* GraphQL */ `
         quantity
         emission
         period
+        user_id
+        category
         createdAt
         updatedAt
         owner
@@ -104,6 +110,35 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
+export const getIdentityMap = /* GraphQL */ `
+  query GetIdentityMap($id: ID!) {
+    getIdentityMap(id: $id) {
+      id
+      pool_id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listIdentityMaps = /* GraphQL */ `
+  query ListIdentityMaps(
+    $filter: ModelIdentityMapFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listIdentityMaps(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        pool_id
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
 export const balanceByMonth = /* GraphQL */ `
   query BalanceByMonth(
     $period: AWSDate
@@ -124,6 +159,7 @@ export const balanceByMonth = /* GraphQL */ `
         period
         cbudget
         cspendings
+        user_id
         createdAt
         updatedAt
         owner
@@ -154,6 +190,7 @@ export const balanceByPeriod = /* GraphQL */ `
         period
         cbudget
         cspendings
+        user_id
         createdAt
         updatedAt
         owner

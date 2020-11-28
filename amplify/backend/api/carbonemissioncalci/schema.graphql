@@ -25,3 +25,8 @@ post: String
 uname: String
 like: Int
 }
+
+type IdentityMap @model @auth(rules: [{ allow: owner}]) {
+id: ID!
+pool_id: String!
+}

@@ -11,6 +11,7 @@ export const createBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
+      user_id
       createdAt
       updatedAt
       owner
@@ -27,6 +28,7 @@ export const updateBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
+      user_id
       createdAt
       updatedAt
       owner
@@ -43,6 +45,7 @@ export const deleteBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
+      user_id
       createdAt
       updatedAt
       owner
@@ -60,6 +63,8 @@ export const createSpendings = /* GraphQL */ `
       quantity
       emission
       period
+      user_id
+      category
       createdAt
       updatedAt
       owner
@@ -77,6 +82,8 @@ export const updateSpendings = /* GraphQL */ `
       quantity
       emission
       period
+      user_id
+      category
       createdAt
       updatedAt
       owner
@@ -94,6 +101,8 @@ export const deleteSpendings = /* GraphQL */ `
       quantity
       emission
       period
+      user_id
+      category
       createdAt
       updatedAt
       owner
@@ -145,6 +154,48 @@ export const deletePost = /* GraphQL */ `
       post
       uname
       like
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const createIdentityMap = /* GraphQL */ `
+  mutation CreateIdentityMap(
+    $input: CreateIdentityMapInput!
+    $condition: ModelIdentityMapConditionInput
+  ) {
+    createIdentityMap(input: $input, condition: $condition) {
+      id
+      pool_id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateIdentityMap = /* GraphQL */ `
+  mutation UpdateIdentityMap(
+    $input: UpdateIdentityMapInput!
+    $condition: ModelIdentityMapConditionInput
+  ) {
+    updateIdentityMap(input: $input, condition: $condition) {
+      id
+      pool_id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteIdentityMap = /* GraphQL */ `
+  mutation DeleteIdentityMap(
+    $input: DeleteIdentityMapInput!
+    $condition: ModelIdentityMapConditionInput
+  ) {
+    deleteIdentityMap(input: $input, condition: $condition) {
+      id
+      pool_id
       createdAt
       updatedAt
       owner
