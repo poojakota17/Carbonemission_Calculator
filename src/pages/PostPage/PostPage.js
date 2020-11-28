@@ -21,12 +21,15 @@ const PostPage = (props) => {
     //const datagraph =  API.graphql({ query: listPosts });
     //console.log("datagraph", datagraph)
     const [data, setData] = useState({});
+    const [chartData, setChartData]= useState({});
+    const [unameData, setUnameData]=useState([]);
+    const [likeData, setLikeData]= useState([]);
 
     useEffect(() => {
         fetchPosts();
         getEmail();
         getData();
-        
+        chart();
     }, []);
 
 
@@ -102,20 +105,38 @@ const PostPage = (props) => {
           console.log("res.data.listPosts.items.uname",res.data.listPosts.items.uname);
 
             const arry = res.data.listPosts.items;
+            const unames = [];
             console.log(" print arry", arry)
-            console.log(" Print arry uname", arry);
-            console.log(JSON.stringify(arry,null,2));
-            const love =(JSON.stringify(arry,null,2));
-            
+            //console.log(" Print arry uname arry", arry);
+            //console.log("Json.stringyfy", JSON.stringify(arry,null,2));
+            const l =(JSON.stringify(arry,null,2));
+            //var i;
+            //for (i = 0; i < l.length; ++i) {
+            //    console.log(l[i]);
+            //}
+           // var keys = Object.keys(l);
+            //for (var i = 0; i < keys.length; i++) {
+              //  var value = l[key];
+                // your code here...
+                //console.log("value", value);
+            // }
+            console.log("slijfojfoajfaposfpaso;kfapsofkasofasofas");
+            /*for(var i = 0; i < arry.length; i++) {
+                console.log(arry[i].uname);
+            }*/
+            arry.forEach((item) => {
+                //console.log("Item: " + item.uname);  
+                unames.push(item.uname); 
+            })
 
 
           setData({
-            labels: [arry.uname],
+            labels: ["covid"],
             datasets: [
               {
-                label: "Covid-19",
+                label: "expenditure",
         
-                data: (arry.like)
+                data: unames
               }
             ]
             
@@ -124,6 +145,30 @@ const PostPage = (props) => {
           console.log(error.response);
         }
       };
+
+      const chart = () =>{
+        try {
+            const res =   API.graphql({ query: listPosts });
+            console.log('in chart ',res)
+        }
+        catch(error){
+            console.log(" errorrrrr", error)
+        }
+          setChartData(
+              {
+                  labels:["mon","tue","thr"],
+                  datasets:[{
+                      label: "level",
+                      data:[32,22,33],
+                      backgroundColor:["rgba(75, 193, 193, 0.6"]
+                  }
+
+                  ]
+              }
+          );
+      };
+
+
     return (
         <>
             <WNavBar />
@@ -191,7 +236,7 @@ const PostPage = (props) => {
                 <br />
             </Container>
             <div>
-<Line data={data} />
+<Line data={chartData} />
 </div>
 
         </>
