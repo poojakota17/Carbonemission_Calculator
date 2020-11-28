@@ -193,3 +193,35 @@ export const balanceByPeriod = /* GraphQL */ `
     }
   }
 `;
+export const spendingsByPeriod = /* GraphQL */ `
+  query SpendingsByPeriod(
+    $period: AWSDate
+    $id: ModelIDKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelSpendingsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    spendingsByPeriod(
+      period: $period
+      id: $id
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        item
+        quantity
+        emission
+        period
+        category
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
