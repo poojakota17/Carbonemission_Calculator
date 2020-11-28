@@ -41,7 +41,7 @@ const MainPage = props => {
   async function checkIdentityMap() {
     try {
       const {data: {listIdentityMaps: {items}} } = await API.graphql({ query: listIdentityMaps });
-      if (items.length > 0)
+      if (items.length == 0)
         setIdentity(true);
     }
     catch(e) {
