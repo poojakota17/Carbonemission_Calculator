@@ -8,7 +8,6 @@ export const onCreateBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -22,7 +21,6 @@ export const onUpdateBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -36,7 +34,6 @@ export const onDeleteBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -47,11 +44,10 @@ export const onCreateSpendings = /* GraphQL */ `
   subscription OnCreateSpendings {
     onCreateSpendings {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt
@@ -63,11 +59,10 @@ export const onUpdateSpendings = /* GraphQL */ `
   subscription OnUpdateSpendings {
     onUpdateSpendings {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt
@@ -79,11 +74,10 @@ export const onDeleteSpendings = /* GraphQL */ `
   subscription OnDeleteSpendings {
     onDeleteSpendings {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt

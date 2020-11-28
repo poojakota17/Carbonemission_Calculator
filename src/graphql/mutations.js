@@ -11,7 +11,6 @@ export const createBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -28,7 +27,6 @@ export const updateBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -45,7 +43,6 @@ export const deleteBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -59,11 +56,10 @@ export const createSpendings = /* GraphQL */ `
   ) {
     createSpendings(input: $input, condition: $condition) {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt
@@ -78,11 +74,10 @@ export const updateSpendings = /* GraphQL */ `
   ) {
     updateSpendings(input: $input, condition: $condition) {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt
@@ -97,11 +92,10 @@ export const deleteSpendings = /* GraphQL */ `
   ) {
     deleteSpendings(input: $input, condition: $condition) {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt

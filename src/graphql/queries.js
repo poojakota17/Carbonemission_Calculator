@@ -8,7 +8,6 @@ export const getBalance = /* GraphQL */ `
       period
       cbudget
       cspendings
-      user_id
       createdAt
       updatedAt
       owner
@@ -27,7 +26,6 @@ export const listBalances = /* GraphQL */ `
         period
         cbudget
         cspendings
-        user_id
         createdAt
         updatedAt
         owner
@@ -40,11 +38,10 @@ export const getSpendings = /* GraphQL */ `
   query GetSpendings($id: ID!) {
     getSpendings(id: $id) {
       id
-      title
+      item
       quantity
       emission
       period
-      user_id
       category
       createdAt
       updatedAt
@@ -61,11 +58,10 @@ export const listSpendingss = /* GraphQL */ `
     listSpendingss(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
+        item
         quantity
         emission
         period
-        user_id
         category
         createdAt
         updatedAt
@@ -159,7 +155,6 @@ export const balanceByMonth = /* GraphQL */ `
         period
         cbudget
         cspendings
-        user_id
         createdAt
         updatedAt
         owner
@@ -190,7 +185,6 @@ export const balanceByPeriod = /* GraphQL */ `
         period
         cbudget
         cspendings
-        user_id
         createdAt
         updatedAt
         owner
