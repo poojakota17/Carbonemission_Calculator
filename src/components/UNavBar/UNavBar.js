@@ -16,7 +16,7 @@ const UNavBar = () => {
 
   return (
     <Navbar collapseOnSelect expand="md">
-      <Navbar.Brand href="/">
+      <Navbar.Brand href="/user">
         < Logo />{' '}
         < Name className="name-logo"/>
       </Navbar.Brand>

@@ -4,7 +4,7 @@ type Balance @model @auth(rules: [{ allow: owner }])
   id: ID!
   period: AWSDate!
   cbudget: Int
-  cspendings: Int
+  cspendings: Float
 }
 
 type Spendings @model @auth(rules: [{ allow: owner, operations: [delete, update] }])
@@ -13,8 +13,8 @@ type Spendings @model @auth(rules: [{ allow: owner, operations: [delete, update]
   {
   id: ID!
   item: String!
-  quantity: Int
-  emission: Int
+  quantity: Float
+  emission: Float
   period: AWSDate!
   category: String!
 }
