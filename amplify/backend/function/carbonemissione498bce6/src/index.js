@@ -154,7 +154,8 @@ async function addDataToDB(i, q, s, c, o, p) {
                 "owner": o,
                 "period": p,
                 "createdAt":time,
-                "updatedAt":time
+                "updatedAt":time,
+                "__typename": "Spendings"
         }
     };
     try {
@@ -231,7 +232,8 @@ async function updateSpendings(currentSpendings, owner, period, newSpendings) {
                 'cspendings': newSpendings,
                 "period": period,
                 "createdAt": time,
-                "updatedAt": time
+                "updatedAt": time,
+                "__typename": "Balance"
             }
         }
         try {
