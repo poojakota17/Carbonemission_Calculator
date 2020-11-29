@@ -351,7 +351,7 @@ exports.handler = function (event, context) {
         "abortStatement": {
             "messages": [
                 {
-                    "content": "I don't understand. Can you try again?",
+                    "content": "Sorry, I don't understand. Can you try again?",
                     "contentType": "PlainText"
                 },
                 {

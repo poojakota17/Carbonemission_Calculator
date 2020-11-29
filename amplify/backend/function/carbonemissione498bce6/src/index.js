@@ -1,9 +1,9 @@
 /* Amplify Params - DO NOT EDIT
-	API_CARBONEMISSIONCALCI_GRAPHQLAPIENDPOINTOUTPUT
-	API_CARBONEMISSIONCALCI_GRAPHQLAPIIDOUTPUT
-	AUTH_CARBONEMISSION056D6878_USERPOOLID
-	ENV
-	REGION
+    API_CARBONEMISSIONCALCI_GRAPHQLAPIENDPOINTOUTPUT
+    API_CARBONEMISSIONCALCI_GRAPHQLAPIIDOUTPUT
+    AUTH_CARBONEMISSION056D6878_USERPOOLID
+    ENV
+    REGION
   SPENDINGS_TABLE
   IDENTITY_TABLE
   BALANCE_TABLE
@@ -12,8 +12,8 @@ Amplify Params - DO NOT EDIT *///import { food } from 'carbon-footprint'
 var AWS = require('aws-sdk'),
     food = require('carbon-footprint'),
     uuid = require('uuid'),
-    docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
-    AWS.config.update({region: process.env.REGION});
+    docClient = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
+AWS.config.update({ region: process.env.REGION });
 
 exports.handler = async (event, context, callback) => {
     const today = new Date();
@@ -24,44 +24,73 @@ exports.handler = async (event, context, callback) => {
 
     /* Unit: kgCO2eq*/
     let emissionquantity_dict = {
-        smartphone: [80,"product"],
-        tablet: [87,"product"],
-        computer: [588,"product"],
-        laptop: [210,"product"],
-        tv: [500,"product"],
-        hybridCar: [6500,"product"],
-        eletricCar: [8800,"product"],
-        shirt: [(13 + 12) / 2,"product"],
-        tshirt: [(7 + 10 + 6) / 3,"product"],
-        jeans: [25,"product"],
-        sweater: [(28 + 26 + 31 + 56 + 12) / 5,"product"],
-        coat: [(89 + 39 + 25) / 3,"product"],
-        dress: [(56 + 56 + 51) / 3,"product"],
-        shoes: [(15 + 19 + 20) / 3,"product"],
-        lamb: [39.2,"food"],
-        beef: [27.0,"food"],
-        redMeat: [(39.2 + 27) / 2,"food"],
-        cheese: [13.5,"food"],
-        pork: [12.1,"food"],
-        turkey: [10.9,"food"],
-        chicken: [6.9,"food"],
-        whiteMeat: [(12.1 + 10.9 + 6.9) / 3,"food"],
-        tuna: [6.1,"food"],
-        fish: [6.1,"food"],
-        eggs: [4.8,"food"],
-        potatoes: [2.9,"food"],
-        rice: [2.7,"food"],
-        nuts: [2.3,"food"],
-        beans: [2.0,"food"],
-        tofu: [2.0,"food"],
-        vegetables: [2.0,"food"],
-        milk: [1.9,"food"],
-        fruit: [1.1,"food"],
-        lentils: [0.9,"food"],
-        coffee: [3.14,"food"],
-        chocolate: [4.87,"food"]
+        smartphone: [80, "product"],
+        smartphones: [80, "product"],
+        mobile: [80, "product"],
+        tablet: [87, "product"],
+        computer: [588, "product"],
+        computers: [588, "product"],
+        laptop: [210, "product"],
+        laptops: [210, "product"],
+        tv: [500, "product"],
+        television: [500, "product"],
+        hybridcar: [6500, "product"],
+        hybridcars: [6500, "product"],
+        eletriccar: [8800, "product"],
+        eletriccars: [8800, "product"],
+        shirt: [(13 + 12) / 2, "product"],
+        shirts: [(13 + 12) / 2, "product"],
+        tshirt: [(7 + 10 + 6) / 3, "product"],
+        tshirts: [(7 + 10 + 6) / 3, "product"],
+        jeans: [25, "product"],
+        sweater: [(28 + 26 + 31 + 56 + 12) / 5, "product"],
+        sweaters: [(28 + 26 + 31 + 56 + 12) / 5, "product"],
+        coat: [(89 + 39 + 25) / 3, "product"],
+        dress: [(56 + 56 + 51) / 3, "product"],
+        dresses: [(56 + 56 + 51) / 3, "product"],
+        shoes: [(15 + 19 + 20) / 3, "product"],
+        lamb: [39.2, "food"],
+        beef: [27.0, "food"],
+        redmeat: [(39.2 + 27) / 2, "food"],
+        cheese: [13.5, "food"],
+        pork: [12.1, "food"],
+        turkey: [10.9, "food"],
+        chicken: [6.9, "food"],
+        whitemeat: [(12.1 + 10.9 + 6.9) / 3, "food"],
+        tuna: [6.1, "food"],
+        fish: [6.1, "food"],
+        eggs: [4.8, "food"],
+        egg: [4.8, "food"],
+        potatoes: [2.9, "food"],
+        tomatoes: [2.9, "food"],
+        onions: [2.9, "food"],
+        rice: [2.7, "food"],
+        nuts: [2.3, "food"],
+        almonds: [2.3, "food"],
+        beans: [2.0, "food"],
+        tofu: [2.0, "food"],
+        vegetables: [2.0, "food"],
+        vegetable: [2.0, "food"],
+        milk: [1.9, "food"],
+        fruit: [1.1, "food"],
+        fruits: [1.1, "food"],
+        apple: [1.1, "food"],
+        apples: [1.1, "food"],
+        banana: [1.1, "food"],
+        bananas: [1.1, "food"],
+        grapes: [1.1, "food"],
+        orange: [1.1, "food"],
+        oranges: [1.1, "food"],
+        berries: [1.1, "food"],
+        berry: [1.1, "food"],
+        melon: [1.1, "food"],
+        lentils: [0.9, "food"],
+        coffee: [3.14, "food"],
+        tea: [3.14, "food"],
+        chocolate: [4.87, "food"],
+        chocolates: [4.87, "food"]
     };
-    const key = event.currentIntent.slots.items;
+    const key = event.currentIntent.slots.items.toLowerCase();
     const value = parseFloat(event.currentIntent.slots.quantity);
     let totalScore = 0;
     let itemScore = 0;
@@ -79,9 +108,9 @@ exports.handler = async (event, context, callback) => {
                 console.log(p)
                 console.log(list[p])
                 var a = parseFloat(list[p]);
-                itemScore = (emissionquantity_dict[p][0] * a);
+                itemScore = (emissionquantity_dict[p.toLowerCase()][0] * a);
                 if (cognitoId != null)
-                    res = await addDataToDB(p, a, itemScore, emissionquantity_dict[p][1], cognitoId, period);
+                    res = await addDataToDB(p, a, itemScore, emissionquantity_dict[p.toLowerCase()][1], cognitoId, period);
                 totalScore += itemScore;
             }
         }
@@ -112,27 +141,27 @@ exports.handler = async (event, context, callback) => {
 };
 
 async function getOwnerId(identId) {
-  var params = {
-      TableName: process.env.IDENTITY_TABLE,
-      ExpressionAttributeNames: {
-          "#pi": "pool_id",
-          "#o": "owner"
-      },
-      ExpressionAttributeValues: {
-           ":p": identId
-      },
-      FilterExpression: "#pi = :p",
-      ProjectionExpression: "#o"
-  };
-  try {
-  const result = await docClient.scan(params).promise();
-  if (result.Items.length)
-    return result.Items[0].owner;
-    return null;
-  } catch (e) {
-      console.log(e)
-      return null;
-  }
+    var params = {
+        TableName: process.env.IDENTITY_TABLE,
+        ExpressionAttributeNames: {
+            "#pi": "pool_id",
+            "#o": "owner"
+        },
+        ExpressionAttributeValues: {
+            ":p": identId
+        },
+        FilterExpression: "#pi = :p",
+        ProjectionExpression: "#o"
+    };
+    try {
+        const result = await docClient.scan(params).promise();
+        if (result.Items.length)
+            return result.Items[0].owner;
+        return null;
+    } catch (e) {
+        console.log(e)
+        return null;
+    }
 }
 
 async function addDataToDB(i, q, s, c, o, p) {
@@ -146,23 +175,23 @@ async function addDataToDB(i, q, s, c, o, p) {
     var params = {
         TableName: process.env.SPENDINGS_TABLE,
         Item: {
-                "id": uuid.v1(),
-                "item": i,
-                "quantity": q,
-                "emission": s,
-                "category": c,
-                "owner": o,
-                "period": p,
-                "createdAt":time,
-                "updatedAt":time,
-                "__typename": "Spendings"
+            "id": uuid.v1(),
+            "item": i,
+            "quantity": q,
+            "emission": s,
+            "category": c,
+            "owner": o,
+            "period": p,
+            "createdAt": time,
+            "updatedAt": time,
+            "__typename": "Spendings"
         }
     };
     try {
-      const result = await docClient.put(params).promise();
-      if (result.Items)
-        return "Success";
-    } catch(e) {
+        const result = await docClient.put(params).promise();
+        if (result.Items)
+            return "Success";
+    } catch (e) {
         console.log(e)
         return null;
     }
@@ -171,31 +200,31 @@ async function addDataToDB(i, q, s, c, o, p) {
 async function getSpendings(owner, period) {
     console.log(owner)
     console.log(period)
-  var params = {
-      TableName: process.env.BALANCE_TABLE,
-      ExpressionAttributeNames: {
-          "#p": "period",
-          "#sp": "cspendings",
-          "#o": "owner",
-          "#id": "id"
-      },
-      ExpressionAttributeValues: {
-           ":o": owner
-      },
-      FilterExpression: "#o = :o",
-      ProjectionExpression: "#id, #o, #sp, #p"
-  };
+    var params = {
+        TableName: process.env.BALANCE_TABLE,
+        ExpressionAttributeNames: {
+            "#p": "period",
+            "#sp": "cspendings",
+            "#o": "owner",
+            "#id": "id"
+        },
+        ExpressionAttributeValues: {
+            ":o": owner
+        },
+        FilterExpression: "#o = :o",
+        ProjectionExpression: "#id, #o, #sp, #p"
+    };
 
-  try {
-      const result = await docClient.scan(params).promise();
-      const currentBalance = result.Items.filter(record => record.period == period)
-      if (currentBalance.length)
-        return currentBalance[0];
-      return null;
-  } catch(e) {
-      console.log(e)
-      return null;
-  }
+    try {
+        const result = await docClient.scan(params).promise();
+        const currentBalance = result.Items.filter(record => record.period == period)
+        if (currentBalance.length)
+            return currentBalance[0];
+        return null;
+    } catch (e) {
+        console.log(e)
+        return null;
+    }
 }
 
 async function updateSpendings(currentSpendings, owner, period, newSpendings) {
@@ -209,13 +238,13 @@ async function updateSpendings(currentSpendings, owner, period, newSpendings) {
             Key: { id },
             UpdateExpression: 'set cspendings = :sp',
             ExpressionAttributeValues: {
-                   ":sp": currentSpendings.cspendings + newSpendings
+                ":sp": currentSpendings.cspendings + newSpendings
             }
         };
         try {
             const result = await docClient.update(params).promise();
             return ("Success");
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             return `Fail: ${e}`;
         }

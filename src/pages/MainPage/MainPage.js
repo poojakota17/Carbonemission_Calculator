@@ -1,12 +1,12 @@
 import React from 'react';
 import { Interactions } from 'aws-amplify';
 import { AmplifyChatbot } from "@aws-amplify/ui-react";
-import { ReactComponent as Logo} from '../../logo.svg';
-import  { useState, useEffect } from 'react';
-import {UNavBar} from '../../components/UNavBar';
-import {Chart} from '../../components/Chart';
+import { ReactComponent as Logo } from '../../logo.svg';
+import { useState, useEffect } from 'react';
+import { UNavBar } from '../../components/UNavBar';
+import { Chart } from '../../components/Chart';
 import Button from 'react-bootstrap/Button';
-import { getIdentity, checkIdentityMap, addIdentityMap, getToday,fetchBalanceInfo, showSpendings, splitByItems, transformSpendings } from '../../Utils.js';
+import { getIdentity, checkIdentityMap, addIdentityMap, getToday, fetchBalanceInfo, showSpendings, splitByItems, transformSpendings } from '../../Utils.js';
 
 const MainPage = props => {
   const [identityId, setIdentityId] = useState(null);
@@ -27,7 +27,7 @@ const MainPage = props => {
   useEffect(() => {
     if (period.year)
       fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
-  },[period])
+  }, [period])
 
   const refreshBalance = () => {
     fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
@@ -36,22 +36,22 @@ const MainPage = props => {
     console.log(items)
   }
 
-    return (
-      <div className="App">
+  return (
+    <div className="App">
       <UNavBar />
-        <header className="App-header">
-          <AmplifyChatbot
-            botName="calculatecarbonemissionbot_dev"
-            botTitle="Calculate carbon emission bot"
-            welcomeMessage="Hello, how can I help you?"
-            textEnabled="true" />
-        </header>
-        <Button onClick={refreshBalance}>Refresh</Button>
-        <div> Current Balance is: {currentBudget}</div>
-        <div> Current Spendings is: {currentSpendings}</div>
-        <Chart items={items}/>
-      </div>
-    );
+      <header className="App-header">
+        <AmplifyChatbot
+          botName="calculatecarbonemissionbot_dev"
+          botTitle="Calculate carbon emission bot"
+          welcomeMessage="Hello, I am here to log your emission. To start, please type log/calculate my emission."
+          textEnabled="true" />
+      </header>
+      <Button onClick={refreshBalance}>Refresh</Button>
+      <div> Current Balance is: {currentBudget}</div>
+      <div> Current Spendings is: {currentSpendings}</div>
+      <Chart items={items} />
+    </div>
+  );
 };
 
 export default MainPage;
