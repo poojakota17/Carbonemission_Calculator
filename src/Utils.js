@@ -80,8 +80,9 @@ export async function showAllBalances() {
 export async function showSpendings(setData) {
   try {
     const result = await API.graphql({query: listSpendingss});
-    setData(result);
-    console.log(result);
+    const {data: {listSpendingss: {items}}} = result;
+    setData(items);
+    console.log(items);
   } catch(e) {
     console.log(e)
   }
