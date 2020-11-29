@@ -81,8 +81,17 @@ export async function showSpendings(setData) {
   try {
     const result = await API.graphql({query: listSpendingss});
     const {data: {listSpendingss: {items}}} = result;
-    setData(items);
-    console.log(items);
+    console.log(items)
+  } catch(e) {
+    console.log(e)
+  }
+}
+
+export async function transformSpendings(setData, transform) {
+  try {
+    const result = await API.graphql({query: listSpendingss});
+    const {data: {listSpendingss: {items}}} = result;
+    setData(transform(items));
   } catch(e) {
     console.log(e)
   }
@@ -100,8 +109,9 @@ export async function updateUserName(user, newName) {
 
 export async function updateCurrentBalance(period, budget, spendings, setBudget) {
   try {
-    const params = {period: `${period.year}-${period.month}-01Z`, limit: 1}
+    const params = {period: `${period.year}-${period.month}-01Z`}
     const {data: {balanceByPeriod: {items}}} = await API.graphql({query: balanceByPeriod, variables: params});
+    console.log(items)
     if (items.length >= 1) {
       const newParams = {
         id: items[0].id,
@@ -131,4 +141,22 @@ async function createNewBalance(budget, spendings, period) {
     console.log(e)
     return "Budget wasn't created"
   }
+}
+
+export function splitByItems(records) {
+  var temp = {};
+  records.forEach((record, i) => {
+    if (temp.hasOwnProperty(record.item))
+      temp[record.item] += record.emission;
+    else {
+      temp[record.item] = record.emission;
+  }});
+  var result = [];
+  for (var key in temp){
+    result.push({
+      name: key,
+      value: temp[key]
+    })
+  }
+  return result;
 }

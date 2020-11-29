@@ -26,7 +26,6 @@ const SettingsPage = props => {
     if (period.year)
       fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
   },[period])
-
   function handleSubmit (event) {
     event.preventDefault();
     if (newName)

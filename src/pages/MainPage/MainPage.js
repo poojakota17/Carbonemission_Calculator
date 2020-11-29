@@ -4,8 +4,9 @@ import { AmplifyChatbot } from "@aws-amplify/ui-react";
 import { ReactComponent as Logo} from '../../logo.svg';
 import  { useState, useEffect } from 'react';
 import {UNavBar} from '../../components/UNavBar';
+import {Chart} from '../../components/Chart';
 import Button from 'react-bootstrap/Button';
-import { getIdentity, checkIdentityMap, addIdentityMap, getToday,fetchBalanceInfo, showSpendings } from '../../Utils.js';
+import { getIdentity, checkIdentityMap, addIdentityMap, getToday,fetchBalanceInfo, showSpendings, splitByItems, transformSpendings } from '../../Utils.js';
 
 const MainPage = props => {
   const [identityId, setIdentityId] = useState(null);
@@ -30,7 +31,9 @@ const MainPage = props => {
 
   const refreshBalance = () => {
     fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
-    showSpendings(setItems);
+    showSpendings();
+    transformSpendings(setItems, splitByItems);
+    console.log(items)
   }
 
     return (
@@ -46,6 +49,7 @@ const MainPage = props => {
         <Button onClick={refreshBalance}>Refresh</Button>
         <div> Current Balance is: {currentBudget}</div>
         <div> Current Spendings is: {currentSpendings}</div>
+        <Chart items={items}/>
       </div>
     );
 };
