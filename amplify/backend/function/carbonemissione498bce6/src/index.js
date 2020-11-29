@@ -219,7 +219,7 @@ async function updateSpendings(currentSpendings, owner, period, newSpendings) {
     else {
         console.log("need to add new balance")
         var params = {
-            TableName: balanceTable,
+            TableName: process.env.BALANCE_TABLE,
             Item: {
                 "id": uuid.v1(),
                 "owner": owner,

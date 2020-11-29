@@ -1,13 +1,11 @@
 import React from 'react';
 import  { useState, useEffect } from 'react';
-import { API, Auth } from 'aws-amplify';
-import { listBalances,  balanceByPeriod} from '../../graphql/queries';
-import { createBalance as createBalanceMutation, updateBalance as updateBalanceMutation } from '../../graphql/mutations';
 import {UNavBar} from '../../components/UNavBar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { fetchUserInfo, getToday, fetchBalanceInfo, updateCurrentBalance, showAllBalances, updateUserName } from '../../Utils.js';
 
 const SettingsPage = props => {
   const [user, setUser] = useState(null);
@@ -17,102 +15,33 @@ const SettingsPage = props => {
   const [newBudget, setNewBudget] = useState(0);
   const [currentSpendings, setCurrentSpendings] = useState(0);
   const [period, setPeriod] = useState({});
-  const [today, setToday] = useState({});
 
   useEffect(() => {
-    fetchUserInfo();
-    getToday();
+    getToday(setPeriod);
+    fetchUserInfo(setUser,setUserName);
     console.log(period)
   }, []);
 
   useEffect(() => {
-    fetchBalanceInfo(period.year, period.month);
+    if (period.year)
+      fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
   },[period])
-
-  function getToday() {
-    const today = new Date();
-    setPeriod({year:today.getFullYear(), month: (today.getMonth() + 1)})
-    setToday({year:today.getFullYear(), month: (today.getMonth() + 1)})
-  }
-
-  function fetchUserInfo() {
-    Auth.currentAuthenticatedUser()
-    .then(user => {
-        setUser(user)
-        console.log(user)
-        if (user.attributes["custom:nickname"])
-          setUserName(user.attributes["custom:nickname"])
-    })
-  }
-
-  function fetchBalanceInfo(year, month) {
-    API.graphql({ query: balanceByPeriod, variables: {period: `${year}-${month}-01Z`, limit: 1} })
-    .then((data) => {
-      const {data: {balanceByPeriod: {items}} } = data;
-      if (items.length >= 1) {
-        setCurrentBudget(items[0].cbudget);
-        setCurrentSpendings(items[0].cspendings);}
-      else {
-        setCurrentBudget(0);
-        setCurrentSpendings(0);
-      }
-      }).catch(err => console.log(err));
-  }
-
-  function createNewBalance() {
-    const params = {
-      'cbudget': newBudget,
-      'cspendings': currentSpendings,
-      'period': `${period.year}-${period.month}-01Z`
-    }
-    API.graphql({ query: createBalanceMutation, variables: { input: params } }).catch(err => console.log(err));
-  }
-
-  function showAll() {
-    API.graphql({query: listBalances}).then((data) => console.log(data)).catch(e => console.log(e))
-  }
-
-  async function updateCurrentBalance() {
-    try {
-      const params = {period: `${period.year}-${period.month}-01Z`, limit: 1}
-      const {data: {balanceByPeriod: {items}}} = await API.graphql({query: balanceByPeriod, variables: params});
-      if (items.length >= 1) {
-        const newParams = {
-          id: items[0].id,
-          cbudget: newBudget
-        }
-        const updatedBudget = await API.graphql({ query: updateBalanceMutation, variables: {input: newParams}});
-        setCurrentBudget(newBudget);
-      }
-      else
-        createNewBalance();
-  }
-      catch(error) { console.log(error);
-        console.log("Smth went wrong")
-      }
-  }
-
-
-  function updateUserName() {
-    if (newName)
-      Auth.updateUserAttributes(user, {"custom:nickname": newName})
-        .then(console.log("success!"))
-  }
 
   function handleSubmit (event) {
     event.preventDefault();
-    updateUserName();
+    if (newName)
+      updateUserName(user, newName)
     setNewName(null)
   };
 
   function handleBudgetSubmit (event) {
     event.preventDefault();
-    updateCurrentBalance();
+    updateCurrentBalance(period, newBudget, currentSpendings, setCurrentBudget);
     setNewBudget(0);
   };
 
   function handleChange(event) {
-     const { value } = event.target;
+    const { value } = event.target;
     setNewName(value)
   }
 
@@ -164,19 +93,9 @@ const SettingsPage = props => {
       </Form.Group>
           <Button variant="secondary" type="submit">Update</Button>
     </Form>
-    <Button onClick={showAll}>All Budgets</Button>
+    <Button onClick={showAllBalances}>All Budgets</Button>
     </>
   );
 };
 
 export default SettingsPage;
-
-/*
-const todoDetails = {
-  id: 'some_id',
-  description: 'My updated description!'
-};
-
-const updatedTodo = await API.graphql({ query: mutations.updateTodo, variables: {input: todoDetails}}));
-copy
-*/
