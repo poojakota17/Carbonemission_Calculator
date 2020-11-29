@@ -7,7 +7,7 @@ type Balance @model @auth(rules: [{ allow: owner }])
   cspendings: Float
 }
 
-type Spendings @model @auth(rules: [{ allow: owner, operations: [delete, update] }])
+type Spendings @model @auth(rules: [{ allow: owner}])
  @key(name: "byPeriod", fields: ["period", "id"], queryField: "spendingsByPeriod")
  @key(name: "byCategory", fields: ["category", "id"], queryField: "spendingsByCategory")
   {

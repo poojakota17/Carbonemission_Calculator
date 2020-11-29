@@ -142,6 +142,7 @@ async function addDataToDB(i, q, s, c, o, p) {
     console.log(c);
     console.log(o);
     console.log(p);
+    var time = new Date().toISOString()
     var params = {
         TableName: process.env.SPENDINGS_TABLE,
         Item: {
@@ -151,7 +152,10 @@ async function addDataToDB(i, q, s, c, o, p) {
                 "emission": s,
                 "category": c,
                 "owner": o,
-                "period": p
+                "period": p,
+                "createdAt":time,
+                "updatedAt":time,
+                "__typename": "Spendings"
         }
     };
     try {
@@ -218,6 +222,7 @@ async function updateSpendings(currentSpendings, owner, period, newSpendings) {
     }
     else {
         console.log("need to add new balance")
+        var time = new Date().toISOString();
         var params = {
             TableName: process.env.BALANCE_TABLE,
             Item: {
@@ -225,7 +230,10 @@ async function updateSpendings(currentSpendings, owner, period, newSpendings) {
                 "owner": owner,
                 "cbudget": 0,
                 'cspendings': newSpendings,
-                "period": period
+                "period": period,
+                "createdAt": time,
+                "updatedAt": time,
+                "__typename": "Balance"
             }
         }
         try {
