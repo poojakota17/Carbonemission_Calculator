@@ -26,6 +26,7 @@ const MainPage = props => {
   }, [identityId]);
 
   useEffect(() => {
+    console.log(period)
     if (period.year)
       fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
   }, [period])
@@ -63,4 +64,4 @@ const MainPage = props => {
 };
 
 export default MainPage;
-//  
+//

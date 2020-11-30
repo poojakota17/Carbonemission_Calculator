@@ -52,7 +52,7 @@ export function getToday(setData) {
 
 export  async function fetchBalanceInfo(year, month, setBudget, setSpendings) {
   try {
-    const result = await API.graphql({ query: balanceByPeriod, variables: {period: `${year}-${month}-01Z`, limit: 1} });
+    const result = await API.graphql({ query: balanceByPeriod, variables: {period: `${year}-${month}-01Z`} });
     const {data: {balanceByPeriod: {items}} } = result;
     if (items.length >= 1) {
       setBudget(items[0].cbudget);
@@ -119,7 +119,7 @@ export async function updateCurrentBalance(period, budget, spendings, setBudget)
         id: items[0].id,
         cbudget: budget
       }
-      const updatedBudget = await API.graphql({ query: updateBalanceMutation, variables: {input: newParams}});
+      await API.graphql({ query: updateBalanceMutation, variables: {input: newParams}});
       setBudget(budget);
     }
     else
