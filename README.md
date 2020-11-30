@@ -14,6 +14,9 @@ Climate change is a big, alarming issue now-a-days and it is primarily because o
 * Kibana							:		Visual representation
 * Cloudwatch						:		App health monitoring
 * SNS							:		Notification for alarm
+#### **Other services**
+  * GoDaddy : Domain name registration
+  * Twitter : Timeline embedding
 
 ### **Architecture Diagram**
 
