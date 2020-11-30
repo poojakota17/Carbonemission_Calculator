@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+## Project II : CMPE 281- Cloud Technologies
+# Carbon Emission Calculator
+
+### Team : Modular Monolith
+### Team Member : 
+'''
+1) Anastasia Zimina
+2) Manjiri Kadam
+3) Pooja Prasannan
+
+'''
+### Checkout our website:
+
+
+# Introduction:
+
+Climate change is a big, alarming issue now-a-days. Due to progression in technologies and capitalism our food consumption and lifestyle has changed drastically over the past few decades. Previously man used to hunt for filling the appetite, now we eat fancy, processed and comfort food which is producing hazardous greenhouse gases which is depleting the Ozone layer and is inducing global warming. 
+Every organic product(Containing HydroCarbons) has its own Carbon Footprint. Carbon footprint is the total amount of CO2 and other greenhouse gases emitted over the life cycle of the product or service, expressed as kilograms of Carbon dioxide equivalent.
+Due to increase in livestock production, advancement in farming and industrialization food production is increasing, so is the carbon footprint for food production. It is very important to give special attention to the food we consume in order to maintain environmental balance. In our project we are implementing the solution to help people make the better choice in food consumption which is environmentally efficient and produces less Carbon emission.
+
+# Project Idea:
+
+In our project, we have developed a bot to find carbon emission of products. The user has to input the type of item and the quantity and the bot will evaluate the total answer i.e the total amount of carbon emission of those products in kg CO2 equivalent. The user can input a budget for his/her emission and can compare whether he/she exceeds the budget or not. For developing the bot we have used `Amazon Lex bot`. The user’s records with the items purchased, its quantity, emission, budget are stored in Dynamodb.  On each record addition in `Dynamodb, lambda is triggered to add the dynamodb streams to elasticsearch cluster`. We are then analysing the data about `total emissions` using `Kibana`.
+
+
+# Implementation:
+
+We have used Amazon Web Services as the backbone of our project. Our application is Serverless, front-end designed using React framework with NodeJS.
+
+'''
+#  AWS Services used          Functionality
+Cognito							  :		Authentication & Authorization
+Lambda  					  	:		Serverless application
+AWS Amplify  					:		CI/CD deployment & hosting                 
+Amazon Lex						:		Chatbot for interaction
+DynamoDB					  	:		Scalable NoSQL Database
+AWS AppSync 					:		GraphQL API based backend
+ElasticSearch Service	:		Indexing and analytics 	
+Cloudwatch						:		App health monitoring
+SNS						      	:		Notification for alarm
+
+# Other Services            Functionality
+GoDaddy               :     Domain name registration
+Kibana                :     Visual representation
+'''
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
