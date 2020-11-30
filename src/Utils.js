@@ -71,7 +71,9 @@ export  async function fetchBalanceInfo(year, month, setBudget, setSpendings) {
 export async function showAllBalances() {
   try {
     const result = await API.graphql({query: listBalances});
+    const {data:{listBalances: {items}}}=result;
     console.log(result)
+   console.log("items in balence", items);
   } catch (e) {
     console.log(e)
   }

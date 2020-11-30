@@ -7,7 +7,7 @@ import {UNavBar} from '../../components/UNavBar';
 import {Chart} from '../../components/Chart';
 import Button from 'react-bootstrap/Button';
 import { getIdentity, checkIdentityMap, addIdentityMap, getToday,fetchBalanceInfo, showSpendings, splitByItems, transformSpendings } from '../../Utils.js';
-
+import { Doughnut, Line } from 'react-chartjs-2';
 const MainPage = props => {
   const [identityId, setIdentityId] = useState(null);
   const [mapped, setMapped] = useState(false);
@@ -15,13 +15,14 @@ const MainPage = props => {
   const [currentBudget, setCurrentBudget] = useState(0);
   const [currentSpendings, setCurrentSpendings] = useState(0);
   const [items, setItems] = useState(null);
-
+  const [chartData, setChartData]= useState({});
   useEffect(() => {
     getToday(setPeriod);
     getIdentity(setIdentityId);
     checkIdentityMap(setMapped);
     if (!mapped && identityId)
       addIdentityMap(identityId, setMapped);
+
   }, [identityId]);
 
   useEffect(() => {
@@ -29,11 +30,18 @@ const MainPage = props => {
       fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
   },[period])
 
+  useEffect(()=>{
+    //chart()
+  },[]
+  );
+
   const refreshBalance = () => {
     fetchBalanceInfo(period.year, period.month, setCurrentBudget, setCurrentSpendings);
     showSpendings();
     transformSpendings(setItems, splitByItems);
     console.log(items)
+    console.log(splitByItems)
+
   }
 
     return (
@@ -55,3 +63,4 @@ const MainPage = props => {
 };
 
 export default MainPage;
+//  

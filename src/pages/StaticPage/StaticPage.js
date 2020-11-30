@@ -118,14 +118,14 @@ const StaticPage = props => {
                     <TwitterTimelineEmbed className="tweet"
                         sourceType="profile"
                         screenName="SavePlanetEart4"
-                        options={{ height: 500, width: 700 }}
+                        options={{ height: 500, width: 1000 }}
                     />
                 </Row>
                 <Row>
                     <TwitterTimelineEmbed className="tweet"
                         sourceType="profile"
-                        screenName="GlobalCarbonProject"
-                        options={{ height: 500, width: 700 }}
+                        screenName="CarbonAcademy"
+                        options={{ height: 500, width: 1000 }}
                     />
                 </Row>
             </Container>

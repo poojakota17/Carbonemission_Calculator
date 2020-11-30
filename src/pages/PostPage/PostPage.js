@@ -11,7 +11,6 @@ import { IoMdTrash, IoIosHeart } from "react-icons/io";
 import './PostPage.css';
 import { Doughnut, Line } from 'react-chartjs-2';
 
-
 //const [dataChart, setDataChart] = useState ({}); 
 const initialFormState = { title: '', post: '', uname: '', like: 0 }
 const PostPage = (props) => {
@@ -20,16 +19,16 @@ const PostPage = (props) => {
     const [formData, setFormData] = useState(initialFormState);
     //const datagraph =  API.graphql({ query: listPosts });
     //console.log("datagraph", datagraph)
-    const [data, setData] = useState({});
-    const [chartData, setChartData]= useState({});
-    const [unameData, setUnameData]=useState([]);
-    const [likeData, setLikeData]= useState([]);
+   // const [data, setData] = useState({});
+   // const [chartData, setChartData]= useState({});
+   // const [unameData, setUnameData]=useState([]);
+   // const [likeData, setLikeData]= useState([]);
 
     useEffect(() => {
         fetchPosts();
         getEmail();
-        getData();
-        chart();
+      //  getData();
+        //chart();
     }, []);
 
 
@@ -86,17 +85,8 @@ const PostPage = (props) => {
             console.log(err);
         }
     }
-   /*const data={
-      
-
-        labels:['mak','lol'],
-        datasets: [{
-            label: 'likes',
-            data:[datagraph.like]}]
-            
-            
-    } */
-    const getData = async () => {
+ 
+   /*const getData = async () => {
         console.log("In getdata")
         try {
           const res =  await API.graphql({ query: listPosts });
@@ -107,30 +97,18 @@ const PostPage = (props) => {
             const arry = res.data.listPosts.items;
             const unames = [];
             console.log(" print arry", arry)
-            //console.log(" Print arry uname arry", arry);
-            //console.log("Json.stringyfy", JSON.stringify(arry,null,2));
+         
             const l =(JSON.stringify(arry,null,2));
-            //var i;
-            //for (i = 0; i < l.length; ++i) {
-            //    console.log(l[i]);
-            //}
-           // var keys = Object.keys(l);
-            //for (var i = 0; i < keys.length; i++) {
-              //  var value = l[key];
-                // your code here...
-                //console.log("value", value);
-            // }
+          
             console.log("slijfojfoajfaposfpaso;kfapsofkasofasofas");
             /*for(var i = 0; i < arry.length; i++) {
                 console.log(arry[i].uname);
-            }*/
+            }
             arry.forEach((item) => {
                 //console.log("Item: " + item.uname);  
                 unames.push(item.uname); 
             })
-
-
-          setData({
+       setData({
             labels: ["covid"],
             datasets: [
               {
@@ -139,35 +117,14 @@ const PostPage = (props) => {
                 data: unames
               }
             ]
-            
-          });
+                  });
         } catch (error) {
           console.log(error.response);
         }
-      };
+      }; */
 
-      const chart = () =>{
-        try {
-            const res =   API.graphql({ query: listPosts });
-            console.log('in chart ',res)
-        }
-        catch(error){
-            console.log(" errorrrrr", error)
-        }
-          setChartData(
-              {
-                  labels:["mon","tue","thr"],
-                  datasets:[{
-                      label: "level",
-                      data:[32,22,33],
-                      backgroundColor:["rgba(75, 193, 193, 0.6"]
-                  }
-
-                  ]
-              }
-          );
-      };
-
+      
+      
 
     return (
         <>
@@ -236,7 +193,7 @@ const PostPage = (props) => {
                 <br />
             </Container>
             <div>
-<Line data={chartData} />
+
 </div>
 
         </>
@@ -244,4 +201,4 @@ const PostPage = (props) => {
 };
 export default PostPage;
 
-//   
+//   <Line data={chartData} />
