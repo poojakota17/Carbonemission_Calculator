@@ -13,7 +13,12 @@ exports.handler = (event, context, callback) => {
 
     // predefined list of available books
 
-    const validfooditmes = ['beef', 'lamb', 'eggs', 'fruits'];
+    const validfooditmes = ['smartphone', 'smartphones', 'mobile', 'tablet', 'computer', 'computers', 'laptop', 'laptops',
+        'tv', 'television', 'hybridcar', 'hybridcars', 'eletriccar', 'eletriccars', 'shirt', 'shirts ', 'tshirt', 'tshirts',
+        'jeans', 'sweater', 'sweaters', 'coat', 'dress', 'dresses', 'shoes', 'lamb', 'beef', 'redmeat', 'cheese', 'pork', 'turkey', 'chicken', 'whitemeat',
+        'tuna', 'fish', 'eggs', 'egg', 'potatoes', 'tomatoes', 'onions', 'rice', 'nuts', 'almonds', 'beans', 'tofu', 'vegetables',
+        'vegetable', 'milk', 'fruit', 'fruits', 'apple', 'apples', 'banana', 'bananas', 'grapes', 'orange', 'oranges', 'berries',
+        'berry', 'melon', 'lentils', 'coffee', 'tea', 'chocolate', 'chocolates'];
     const validmoreitem = ['yes', 'y', 'no', 'n'];
 
     // negative check: if valid slot value is not obtained, inform lex that user is expected 
@@ -27,11 +32,11 @@ exports.handler = (event, context, callback) => {
                 type: "ElicitSlot",
                 message: {
                     contentType: "PlainText",
-                    content: `Sorry, we do not currently have record for product: ${items}, Please enter another item`
+                    content: `Sorry, we do not have currently record for product: ${items}, Please enter another item`
                 },
 
                 intentName: event.currentIntent.name,
-                slots: slots,
+                slots: event.currentIntent.slots,
                 slotToElicit: "items"
             }
         }
@@ -61,16 +66,11 @@ exports.handler = (event, context, callback) => {
 
         }
 
-
-
         let response = {
             sessionAttributes: sessionAttributes,
             dialogAction: {
                 type: "Delegate",
                 slots: null
-
-
-
             }
         }
         callback(null, response);
@@ -95,15 +95,4 @@ exports.handler = (event, context, callback) => {
 
 
 
-// exports.handler = async (event) => {
-//     // TODO implement
-//     const response = {
-//         statusCode: 200,
-//         //  Uncomment below to enable CORS requests
-//         //  headers: {
-//         //      "Access-Control-Allow-Origin": "*"
-//         //  }, 
-//         body: JSON.stringify('Hello from Lambda!'),
-//     };
-//     return response;
-// };
+
