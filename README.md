@@ -4,9 +4,11 @@
 ### Team : Modular Monolith
 ### Team Member : 
 
+```
 1) Anastasia Zimina
 2) Manjiri Kadam
 3) Pooja Prasannan
+```
 
 
 ### Checkout our website:
@@ -27,24 +29,35 @@ In our project, we have developed a bot to find carbon emission of products. The
 
 We have used Amazon Web Services as the backbone of our project. Our application is Serverless, front-end designed using React framework with NodeJS.
 
-'''
+```
 #  AWS Services used          Functionality
--Cognito							  :		Authentication & Authorization
--Lambda  					  	  :		Serverless application
--AWS Amplify  					:		CI/CD deployment & hosting                 
--Amazon Lex						  :		Chatbot for interaction
--DynamoDB					  	  :		Scalable NoSQL Database
--AWS AppSync 					  :		GraphQL API based backend
--ElasticSearch Service	:		Indexing and analytics 	
--Cloudwatch						  :		App health monitoring
--SNS						      	:		Notification for alarm
+* Cognito							    :		Authentication & Authorization
+* Lambda  					  	  :		Serverless application
+* AWS Amplify  					  :		CI/CD deployment & hosting                 
+* Amazon Lex						  :		Chatbot for interaction
+* DynamoDB					  	  :		Scalable NoSQL Database
+* AWS AppSync 					  :		GraphQL API based backend
+* ElasticSearch Service	  :		Indexing and analytics 	
+* Cloudwatch						  :		App health monitoring
+* SNS						      	  :		Notification for alarm
 
 # Other Services            Functionality
--GoDaddy               :     Domain name registration
--Kibana                :     Visual representation
--Twitter               :     Timeline feeds
-'''
+* GoDaddy               :     Domain name registration
+* Kibana                :     Visual representation
+* Twitter               :     Timeline feeds
+```
 
+# Architecture Diagram:
+
+
+
+# Resources:
+
+
+
+
+
+### Thank you
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
