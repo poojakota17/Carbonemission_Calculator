@@ -6,13 +6,8 @@ import { useState, useEffect } from 'react';
 import { UNavBar } from '../../components/UNavBar';
 import { Chart } from '../../components/Chart';
 import Button from 'react-bootstrap/Button';
-<<<<<<< HEAD
-import { getIdentity, checkIdentityMap, addIdentityMap, getToday,fetchBalanceInfo, showSpendings, splitByItems, transformSpendings } from '../../Utils.js';
-import { Doughnut, Line } from 'react-chartjs-2';
-=======
 import { getIdentity, checkIdentityMap, addIdentityMap, getToday, fetchBalanceInfo, showSpendings, splitByItems, transformSpendings } from '../../Utils.js';
 
->>>>>>> e5af00f447bdbce64990cb86e6a513378aeee5f4
 const MainPage = props => {
   const [identityId, setIdentityId] = useState(null);
   const [mapped, setMapped] = useState(false);
