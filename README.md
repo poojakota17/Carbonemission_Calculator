@@ -21,7 +21,20 @@ With this project we aims to make us aware of the amount of carbon emission (in 
 
 This is a cloud native serverless application using AWS. Frontend of this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Backend is using nodejs.
 
-
+### **Services Used**
+* Cognito							:		Authentication & Authorization
+* Lambda  						:		Serverless application
+* AWS Amplify  					:		CI/CD deployment &  hosting                 
+* Amazon Lex						:		Chatbot for interaction
+* DynamoDB						:		Scalable NoSQL Database
+* AWS AppSync 					:		GraphQL API based backend
+* ElasticSearch Service			:		Indexing and analytics 
+* Kibana							:		Visual representation
+* Cloudwatch						:		App health monitoring
+* SNS							:		Notification for alarm
+#### **Other services**
+  * GoDaddy : Domain name registration
+  * Twitter : Timeline embedding
 			
 
 ### **Architecture Diagram**
