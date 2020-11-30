@@ -51,7 +51,7 @@ const SettingsPage = props => {
     const { value } = event.target;
     setNewName(value)
   }
-
+// For Chart:
   async function getData(){
     let period=[];
     let cbud=[];
@@ -77,10 +77,8 @@ const SettingsPage = props => {
           text: 'Monthly spendings'
         }
       },
-     
-      labels:period,
+    labels:period,
       datasets:[
-
          {
            label:"Total spending",
             backgroundColor: 'rgba(75,193,193,0.3)',
@@ -101,15 +99,10 @@ const SettingsPage = props => {
   })
  
   } 
-
-
   const defaultNameInput = <Form.Control as="textarea" rows={1} placeholder="Loading data..."/>
 
   const customizedNameInput = <Form.Control as="textarea" rows={1} onChange={handleChange} placeholder={userName ? userName : "Anonimus"}/>
 
-
-
- 
   return (
     <>
     <UNavBar />
@@ -160,9 +153,7 @@ const SettingsPage = props => {
       <Bar data={chartData}/>
     </div>
     </Container>
-    <div>
-    
-      
+    <div> 
     </div>
     </>
   );

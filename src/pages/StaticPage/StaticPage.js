@@ -12,7 +12,6 @@ const StaticPage = props => {
         <div>
             <WNavBar />
             <h3 className='caption'>Little Steps towards better world !</h3>
-            <Link to="/static">StaticPage</Link>
             <div className="class1"></div>
             <br />
             <Container>
@@ -137,3 +136,4 @@ const StaticPage = props => {
 
 
 export default StaticPage;
+//<Link to="/static">StaticPage</Link>
