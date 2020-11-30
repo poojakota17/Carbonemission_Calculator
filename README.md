@@ -29,7 +29,6 @@ In our project, we have developed a bot to find carbon emission of products. The
 
 We have used Amazon Web Services as the backbone of our project. Our application is Serverless, front-end designed using React framework with NodeJS.
 
-```
 #  AWS Services used          Functionality
 * Cognito							    :		Authentication & Authorization
 * Lambda  					  	  :		Serverless application
@@ -45,7 +44,7 @@ We have used Amazon Web Services as the backbone of our project. Our application
 * GoDaddy               :     Domain name registration
 * Kibana                :     Visual representation
 * Twitter               :     Timeline feeds
-```
+
 
 # Architecture Diagram:
 
