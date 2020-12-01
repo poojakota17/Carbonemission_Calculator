@@ -92,7 +92,7 @@ const WelcomePage = props => {
                           <Card.Body>
                               <Card.Title>Reduce food waste
                               </Card.Title>
-                              <Card.Img variant="top" src="/images/waste1.jfif" className="img" />
+                              <Card.Img variant="top" src="/images/drawing.jpg" className="img" />
                               <Card.Text>
                                   Food waste, decayed food produces lots of Methane, and other harmful Greenhouse gases. So try to avoid food wastage. Make compost! Give back to mother nature.
                               </Card.Text>
