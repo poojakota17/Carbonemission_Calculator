@@ -1,0 +1,9 @@
+.btn-orange {
+  background-color: var(--yellow);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.display-settings {
+  font-size: 1.5rem;
+  font-weight: 300;
+}

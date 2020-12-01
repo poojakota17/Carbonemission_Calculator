@@ -7,34 +7,35 @@ export default class BalanceBar extends PureComponent {
     const balanceLabel = `${this.props.period.year}-${this.props.period.month}`
     const balanceData = [
       {
-        label:"Total spending",
-        backgroundColor: 'rgba(56,161,74,0.3)',
-        data:[this.props.spendings],
-        borderColor:[ 'rgb(0,99,132)' ],
-        hoverBackgroundColor: 'rgba(56,161,74,0.9)'
-      },
-      {
         label:" Budget",
         data: [this.props.budget],
-        backgroundColor:[ 'rgba(241,85,45, 0.2)'],
+        backgroundColor:[ 'rgba(241,85,45, 1)'],
         borderColor:[ 'rgb(0,99,132)'],
-        hoverBackgroundColor: 'rgba(241,85,45, 0.9)'
+        hoverBackgroundColor: 'rgba(241,85,45, 0.5)'
+      },
+      {
+        label:"Total spending",
+        backgroundColor: 'rgba(56,161,74,1)',
+        data:[this.props.spendings],
+        borderColor:[ 'rgb(0,99,132)' ],
+        hoverBackgroundColor: 'rgba(56,161,74,0.5)'
       }
     ]
-    const barData = {
-      options: {
+
+    const barOptions = {
         tooltip:'index',
-        title: {
-          display: true,
-          text: 'Monthly spendings'
+        legend: {
+          position: 'bottom'
         }
-      },
+      }
+
+    const barData = {
       labels: [balanceLabel],
       datasets: balanceData
     }
     return (
       <Bar
-        data = {barData}/>
+        data = {barData} options={barOptions}/>
     );
   }
 }
