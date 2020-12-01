@@ -1,5 +1,5 @@
 ## **SAVE OUR EARTH**
-===================
+
 
 # Project II : CMPE 281- Cloud Technologies
 # Carbon Emission Calculator
@@ -10,7 +10,7 @@
 2) Manjiri Kadam
 3) Pooja Prasannan
 ```
-## Checkout our website:
+## Checkout our website: [Carbon Emission Calculator](https://co2emissioncalculator.savenaturetoday.com/)
 # Introduction:
 Climate change is a big, alarming issue now-a-days. Due to progression in technologies and capitalism our food consumption and lifestyle has changed drastically over the past few decades. Previously man used to hunt for filling the appetite, now we eat fancy, processed and comfort food which is producing hazardous greenhouse gases which is depleting the Ozone layer and is inducing global warming. Every organic product(Containing HydroCarbons) has its own Carbon Footprint. Carbon footprint is the total amount of CO2 and other greenhouse gases emitted over the life cycle of the product or service, expressed as kilograms of Carbon dioxide equivalent. Due to increase in livestock production, advancement in farming and industrialization food production is increasing, so is the carbon footprint for food production. It is very important to give special attention to the food we consume in order to maintain environmental balance. In our project we are implementing the solution to help people make the better choice in food consumption which is environmentally efficient and produces less Carbon emission.
 
