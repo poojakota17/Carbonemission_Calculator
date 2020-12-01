@@ -1,7 +1,15 @@
 :root {
-  --greeny-yellow: #d4ce36ff;
+  --brown: rgb(167,113,42);
+  --dark-green: #21593f;
+  --deep-green: #38a14a;
   --greeny: #88b744ff;
-  --yellow: #ffe935;
+  --greeny-yellow: #d4ce36ff;
+  --yellow: #fef33f;
+  --yellow-orange: #ffe935;
+  --orange: #fa9d33;
+  --red: #f1552d;
+  --deep-red: #d90a2d;
+
   --amplify-primary-color: #88b744ff;
   --amplify-font-family: inherit !important;
 }
@@ -23,4 +31,8 @@ code {
 
 amplify-sing-out {
   background: black;
+}
+
+.refresh {
+  font-size: 0.75rem;
 }

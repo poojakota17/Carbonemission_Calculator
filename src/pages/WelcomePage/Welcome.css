@@ -23,7 +23,7 @@
 }*/
 
 .myCard:hover{
-    filter: drop-shadow(15px 15px 4px rgb(31, 195, 9))
+    filter: drop-shadow(15px 15px 4px var(--greeny))
 }
 .myCard {
     transition: filter 1.5s;
@@ -48,7 +48,7 @@
     background-size: cover;
 
 }
-.tweet{
+.tweet {
     display: block;
     margin-left: auto;
     margin-right: auto;

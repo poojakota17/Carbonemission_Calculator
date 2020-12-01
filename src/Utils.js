@@ -1,7 +1,7 @@
 import { API, Auth } from 'aws-amplify';
 import { listIdentityMaps } from './graphql/queries';
 import { createIdentityMap } from './graphql/mutations';
-import { listBalances,  balanceByPeriod, listSpendingss} from './graphql/queries';
+import { listBalances,  balanceByPeriod, listSpendingss, spendingsByPeriod} from './graphql/queries';
 import { createBalance as createBalanceMutation, updateBalance as updateBalanceMutation } from './graphql/mutations';
 
 export async function getIdentity(setData) {
@@ -79,17 +79,18 @@ export async function showAllBalances() {
   }
 }
 
-export async function showSpendings(setData) {
+export async function periodSpendings(year, month, setData, transform) {
   try {
-    const result = await API.graphql({query: listSpendingss});
-    const {data: {listSpendingss: {items}}} = result;
+    const result = await API.graphql({query: spendingsByPeriod, variables: {period: `${year}-${month}-01Z`}});
+    const {data: {spendingsByPeriod: {items}}} = result;
     console.log(items)
+    setData(transform(items));
   } catch(e) {
     console.log(e)
   }
 }
 
-export async function transformSpendings(setData, transform) {
+export async function allSpendings(setData, transform) {
   try {
     const result = await API.graphql({query: listSpendingss});
     const {data: {listSpendingss: {items}}} = result;

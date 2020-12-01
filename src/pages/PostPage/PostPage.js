@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useReducer } from 'react';
-import { WNavBar } from '../../components/WNavBar'
+import { UNavBar } from '../../components/UNavBar'
 import { API, Auth } from 'aws-amplify';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listPosts } from '../../graphql/queries';
@@ -11,7 +11,7 @@ import { IoMdTrash, IoIosHeart } from "react-icons/io";
 import './PostPage.css';
 import { Doughnut, Line } from 'react-chartjs-2';
 
-//const [dataChart, setDataChart] = useState ({}); 
+//const [dataChart, setDataChart] = useState ({});
 const initialFormState = { title: '', post: '', uname: '', like: 0 }
 const PostPage = (props) => {
     const [posts, setPosts] = useState([]);
@@ -37,9 +37,6 @@ const PostPage = (props) => {
         Auth.currentUserInfo()
             .then((res) => {
                 setUserEmail(res.attributes.email);
-                console.log("Email is: " + res.attributes.email);
-                console.log("email is :", userEmail);
-                console.log("res is ", res)
                 setFormData({ ...formData, uname: res.attributes.email, like: 0 });
             })
             .catch((err) => {
@@ -52,14 +49,12 @@ const PostPage = (props) => {
         const apiData = await API.graphql({ query: listPosts });
 
         setPosts(apiData.data.listPosts.items);
-        console.log("fetched Items", apiData.data.listPosts.items);
-        console.log("fetched Items uname    ", apiData.data.listPosts.items);
     }
     async function createPost() {
         if (!formData.title || !formData.post) return;
         await API.graphql({ query: createPostMutation, variables: { input: formData } });
         setPosts([...posts, formData]);
-        
+
         setFormData(initialFormState);
         console.log("setFormData",setFormData )
     }
@@ -85,7 +80,7 @@ const PostPage = (props) => {
             console.log(err);
         }
     }
- 
+
    /*const getData = async () => {
         console.log("In getdata")
         try {
@@ -97,23 +92,23 @@ const PostPage = (props) => {
             const arry = res.data.listPosts.items;
             const unames = [];
             console.log(" print arry", arry)
-         
+
             const l =(JSON.stringify(arry,null,2));
-          
+
             console.log("slijfojfoajfaposfpaso;kfapsofkasofasofas");
             /*for(var i = 0; i < arry.length; i++) {
                 console.log(arry[i].uname);
             }
             arry.forEach((item) => {
-                //console.log("Item: " + item.uname);  
-                unames.push(item.uname); 
+                //console.log("Item: " + item.uname);
+                unames.push(item.uname);
             })
        setData({
             labels: ["covid"],
             datasets: [
               {
                 label: "expenditure",
-        
+
                 data: unames
               }
             ]
@@ -123,12 +118,12 @@ const PostPage = (props) => {
         }
       }; */
 
-      
-      
+
+
 
     return (
         <>
-            <WNavBar />
+            <UNavBar />
             <center><h3>Share the Steps you are taking to make the world a better place !</h3></center>
             <br />
             <Container>
@@ -171,7 +166,7 @@ const PostPage = (props) => {
                                                     <p>{post.post}</p>
 
                                                     <p>Posted by : {post.uname}</p>
-                                                    
+
                                                     <p>{post.createdAt  }</p>
                                                 </div>
                                                 <div className='col-lg-6'>

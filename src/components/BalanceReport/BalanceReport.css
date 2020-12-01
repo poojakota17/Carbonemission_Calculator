@@ -1,0 +1,40 @@
+.alert-unknown {
+  background-color: var(--brown);
+}
+
+.alert-fantastic {
+  background-color: var(--dark-green);
+  color: var(--greeny);
+}
+
+.alert-awesome {
+  background-color: var(--deep-green);
+}
+
+.alert-great {
+  background-color: var(--greeny);
+}
+
+.alert-good {
+  background-color: var(--greeny-yellow);
+}
+
+.alert-moderate {
+  background-color: var(--yellow);
+}
+
+.alert-caution_one {
+  background-color: var(--yellow-orange);
+}
+
+.alert-caution_two {
+  background-color: var(--orange);
+}
+
+.alert-caution_three {
+  background-color: var(--red);
+}
+
+.alert-bad {
+  background-color: var(--deep-red);
+}
