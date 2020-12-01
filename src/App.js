@@ -15,6 +15,7 @@ console.log("Start of APP");
 
 const App = () => {
     return (
+        
         <Router>
             <Switch>
                 <Route path="/about" exact render={() => <AboutPage />}/>
@@ -22,6 +23,8 @@ const App = () => {
                 <Route path="/user" render={() => <UserApp />}/>
             </Switch>
         </Router>
+
+        
     );
 }
 
