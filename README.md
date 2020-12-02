@@ -6,8 +6,8 @@
 ## Team : Modular Monolith
 ## Team Members :
 ```
-1) Anastasia Zimina
-2) Manjiri Kadam
+1) Anastasia Zimina [LinkedIn](https://www.linkedin.com/in/anastaszi/)
+2) Manjiri Kadam [LinkedIn](https://www.linkedin.com/in/manjiri-kadam-133085113/)
 3) Pooja Prasannan
 ```
 ## Checkout our website: [Carbon Emission Calculator](https://co2emissioncalculator.savenaturetoday.com/)
